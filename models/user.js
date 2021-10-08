@@ -9,7 +9,8 @@ const Schema = mongoose.Schema;
 const userSchema = Schema({
     email: { type: String, unique: true, required: true },
     username: String,
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    isAuthor: { type: Boolean, default: true }
 }, { timestamps: true });
 
 //------------------------------------
