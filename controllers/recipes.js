@@ -5,6 +5,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const recipeRouter = express.Router();
 const Recipe = require('../models/recipe');
+const User = require('../models/user');
 
 
 //====================================
@@ -26,7 +27,12 @@ function isAuthenticated(req, res, next) {
 //------------------------------------
 //NEW
 recipeRouter.get('/new', isAuthenticated, (req, res) => {
-    res.render('new.ejs')
+    User.find(req.session.user, (err) => {
+        console.log(req.session.user)
+        res.render('new.ejs', {
+            user: req.session.user
+        });
+    });
 });
 //------------------------------------
 //DELETE

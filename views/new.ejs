@@ -7,12 +7,22 @@
     <title>New Recipe</title>
 </head>
 <body>
-        <h1>New Recipe</h1>
+        <header>
+            <h1>New Recipe</h1>
+            <nav>
+                <a href="/logout">Logout</a>
+                <a href="/dashboard">Dashboard</a>
+            </nav>
+        </header>
 
         <form action="/new" method="POST">
+            <input type="hidden" name="user" value="<%=user%>">
             <label>Recipe Name:
-                <input type="text" name="email">
+                <input type="text" name="title">
             </label><br>
+            <label>Upload an Image
+                <input type="file" name="img" accept="image/png, image/jpeg">
+            </label>
             <label>Description:
                 <textarea name="description" id="" cols="30" rows="5"></textarea>
             </label><br>
