@@ -8,8 +8,9 @@ const mongoose = require('mongoose');
 const DATABASE_URL = process.env.DATABASE_URL
 const SECRET = process.env.SECRET
 const expressSession = require('express-session');
-const userController = require('./controllers/users')
-const indexController = require('./controllers/index')
+const userController = require('./controllers/users');
+const indexController = require('./controllers/index');
+const recipeController = require('./controllers/recipes');
 
 //====================================
 //             DATABASE
@@ -33,6 +34,7 @@ app.use(expressSession({
 
 app.use('/', userController);
 app.use('/', indexController);
+app.use('/', recipeController);
 
 //====================================
 //             ROUTES

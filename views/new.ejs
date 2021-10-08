@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Recipe</title>
+</head>
+<body>
+        <h1>New Recipe</h1>
+
+        <form action="/new" method="POST">
+            <label>Recipe Name:
+                <input type="text" name="email">
+            </label><br>
+            <label>Description:
+                <textarea name="description" id="" cols="30" rows="5"></textarea>
+            </label><br>
+            <label>Ingredients:
+                <textarea name="ingredients" id="" cols="30" rows="10"></textarea>
+            </label><br>
+            <label>Steps:
+                <textarea name="steps" id="" cols="30" rows="10"></textarea>
+            </label><br>
+            <label>Prep Time
+                <input type="text" name="prepTime">
+            </label>
+            <label>Cook Time
+                <input type="text" name="cookTime">
+            </label>
+            <input type="submit" value="Add Recipe">
+        </form>
+</body>
+</html>
