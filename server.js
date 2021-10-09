@@ -7,6 +7,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const DATABASE_URL = process.env.DATABASE_URL
 const SECRET = process.env.SECRET
+const fs = require('fs');
+const path = require('path');
 const expressSession = require('express-session');
 const userController = require('./controllers/users');
 const indexController = require('./controllers/index');

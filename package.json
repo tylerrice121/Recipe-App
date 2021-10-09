@@ -26,7 +26,9 @@
     "formidable": "^1.2.2",
     "method-override": "^3.0.0",
     "mongoose": "^6.0.9",
-    "multer": "^1.4.3"
+    "multer": "^1.4.3",
+    "path": "^0.12.7",
+    "uuid": "^8.3.2"
   },
   "description": ""
 }

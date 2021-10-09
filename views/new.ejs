@@ -15,7 +15,7 @@
             </nav>
         </header>
 
-        <form action="/new" method="POST">
+        <form action="/new" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="user" value="<%=user%>">
             <label>Recipe Name:
                 <input type="text" name="title">

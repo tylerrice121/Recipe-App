@@ -7,7 +7,6 @@ const usersRouter = express.Router();
 const User = require('../models/user');
 const Recipe = require('../models/recipe');
 
-
 //====================================
 //             ROUTES
 //====================================
@@ -62,26 +61,5 @@ usersRouter.post('/signup', (req, res) => {
     });
 });
 
-//------------------------------------
-//DASHBOARD PROTECTED (dashboard)
-
-// Auth middleware
-
-usersRouter.get('/dashboard', isAuthenticated, (req, res) => {
-    User.findById(req.session.user, (err, user) => {
-        Recipe.find({}).populate('user').exec((err, recipes) =>{
-            res.render('dashboard.ejs', { user, recipes });
-            console.log(recipes)
-        });
-    });
-});
-
-function isAuthenticated(req, res, next) {
-    if(!req.session.user){
-        return res.redirect('/login')
-    }
-    next();
-};
-//------------------------------------
 //EXPORT
 module.exports = usersRouter;
