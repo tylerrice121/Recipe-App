@@ -8,11 +8,24 @@
 </head>
 <body>
     <header>
-        <h1>Hello <%=user.username%></h1>
         <nav>
+            <h1>DASHBOARD</h1>
+            <a href="/new">add recipe</a>
             <a href="/logout">Logout</a>
         </nav>
     </header>
-    <a href="/new">add recipe</a>
+        <h1>Hello <%=user.username%></h1>
+        <div class="container">
+            <div class="recipes">
+                <%for (let i = 0; i < recipes.length; i++) {%>
+                    <div>
+                        <h2><%=recipes[i].title%></h2>
+                        <img src="<%=recipes[i].img%>" style="width: 350px;">
+                        <p><%=recipes[i].description%></p>
+                        <p><%=recipes[i].user.username%></p>
+                    </div>
+                <%}%>
+            </div>
+        </div>
 </body>
 </html>

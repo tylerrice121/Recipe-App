@@ -5,6 +5,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const usersRouter = express.Router();
 const User = require('../models/user');
+const Recipe = require('../models/recipe');
 
 
 //====================================
@@ -66,10 +67,12 @@ usersRouter.post('/signup', (req, res) => {
 
 // Auth middleware
 
-
 usersRouter.get('/dashboard', isAuthenticated, (req, res) => {
     User.findById(req.session.user, (err, user) => {
-        res.render('dashboard.ejs', { user });
+        Recipe.find({}).populate('user').exec((err, recipes) =>{
+            res.render('dashboard.ejs', { user, recipes });
+            console.log(recipes)
+        });
     });
 });
 

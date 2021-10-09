@@ -32,6 +32,8 @@ app.use(expressSession({
     saveUninitialized: false
 }));
 
+app.use(express.static('public'));
+
 app.use('/', userController);
 app.use('/', indexController);
 app.use('/', recipeController);

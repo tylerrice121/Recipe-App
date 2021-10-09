@@ -20,8 +20,19 @@ function isAuthenticated(req, res, next) {
 };
 
 //====================================
+//             SEED
+//====================================
+const recipeSeed = require('../models/seed');
+
+//====================================
 //             ROUTES
 //====================================
+//DELETE ALL
+recipeRouter.get('/recipes/delete', (req, res) => {
+    Recipe.deleteMany({});
+    res.redirect('/')
+});
+
 //------------------------------------
 //INDEX
 //------------------------------------
