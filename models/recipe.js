@@ -5,19 +5,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //------------------------------------
-// RECIPE SCHEMA
-const imageSchema = Schema({
-    img: String,
-}, { timestamps: true });
-
 
 const recipeSchema = Schema({
     title: String,
     description: String,
-    imgFile: { 
-        type: Schema.Types.ObjectId,
-        ref: 'Image'
-    },
+    img: String,
     ingredients: String,
     steps: String,
     user: { 

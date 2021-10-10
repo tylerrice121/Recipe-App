@@ -19,10 +19,12 @@
             <div class="recipes">
                 <%for (let i = 0; i < recipes.length; i++) {%>
                     <div>
-                        <h2><%=recipes[i].title%></h2>
+                        <a href="/recipe/<%=recipes[i]._id%>">
+                            <h2><%=recipes[i].title%></h2>                   
+                        </a>
                         <img src="<%=recipes[i].img%>" style="width: 350px;">
                         <p><%=recipes[i].description%></p>
-                        <p><%=recipes[i].user.username%></p>
+                        <p>Uploaded by <%=recipes[i].user.username%></p>
                     </div>
                 <%}%>
             </div>

@@ -12,6 +12,7 @@ const fs = require('fs');
 const path = require('path');
 const uuid = require('uuid').v4;
 
+
 const storage = multer.diskStorage({
     destination: (req, file, newFile) => {
         newFile(null, 'uploads')
@@ -70,20 +71,21 @@ recipeRouter.get('/dashboard', isAuthenticated, (req, res) => {
 //------------------------------------
 //NEW
 recipeRouter.get('/new', isAuthenticated, (req, res) => {
-        User.find(req.session.user, (err) => {
-            console.log(req.session)
-            res.render('new.ejs', {
-                user: req.session.user,
-            });
+    User.find(req.session.user, (err) => {
+        console.log(req.session)
+        res.render('new.ejs', {
+            user: req.session.user,
         });
+    });
 });
 //------------------------------------
 //DELETE
 //------------------------------------
 //UPDATE
+
 //------------------------------------
 //CREATE
-recipeRouter.post('/new', upload.single('img'), (req, res) => {
+recipeRouter.post('/new', (req, res) => {
     Recipe.create(req.body, (err, newRecipe) => {
         res.redirect('/dashboard')
         console.log(req.body)
@@ -91,8 +93,18 @@ recipeRouter.post('/new', upload.single('img'), (req, res) => {
 });
 //------------------------------------
 //EDIT
+
 //------------------------------------
 //SHOW
+
+recipeRouter.get('/recipe/:id', (req, res) => {
+    Recipe.findById(req.params.id, (err, r) => {
+        res.render('show.ejs', {
+            r,
+            user: req.session.user
+        })
+    })
+})
 
 //------------------------------------
 //EXPORT
