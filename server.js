@@ -5,9 +5,9 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const DATABASE_URL = process.env.DATABASE_URL
 const SECRET = process.env.SECRET
-const methodOverride = require('method-override');
 const fs = require('fs');
 const path = require('path');
 const expressSession = require('express-session');

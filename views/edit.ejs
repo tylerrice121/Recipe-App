@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Recipe</title>
+</head>
+<body>
+        <header>
+            <h1>New Recipe</h1>
+            <nav>
+                <a href="/new">add recipe</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+            </nav>
+        </header>
+        <div class="container">
+            <form action="/recipe/<%=r._id%>/edit?_method=PUT" method="POST">
+                <div class="left-side">
+                    <h1><%= r.title %></h1>
+                    <img src="/<%= r.img %>" style="width: 350px;">
+                    <h1>IMG</h1>
+                    <h4>DESCRIPTION</h4>
+                    <textarea name="description" id="" cols="30" rows="5"><%= r.description %></textarea>
+                    <p>PREPTIME
+                        <input type="text" name="prepTime" value="<%=r.prepTime%>">
+                    </p>
+                    <p>COOKTIME
+                        <input type="text" name="cookTime" value="<%=r.cookTime%>">
+                    </p>
+                </div>
+                <div class="right-side">
+                    <h3>INGREDIENTS</h3>
+                    <textarea name="ingredients" id="" cols="50" rows="20"><%= r.ingredients %></textarea>
+                    <h3>STEPS</h3>
+                    <textarea name="steps" id="" cols="50" rows="20"><%= r.steps %></textarea>
+                </div>
+                <input type="submit" value="Save Changes">
+            </form>
+        </div>
+</body>
+</html>

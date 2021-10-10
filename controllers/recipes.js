@@ -83,6 +83,17 @@ recipeRouter.get('/new', isAuthenticated, (req, res) => {
 //------------------------------------
 //UPDATE
 
+recipeRouter.put('/recipe/:id/edit', (req, res) => {
+    Recipe.findByIdAndUpdate(req.params.id, req.body, 
+        {
+            new: true
+        },
+        (err, updatedRecipe) => {
+            res.redirect(`/recipe/${req.params.id}`)
+        }
+    );
+});
+
 //------------------------------------
 //CREATE
 recipeRouter.post('/new', (req, res) => {
@@ -93,6 +104,14 @@ recipeRouter.post('/new', (req, res) => {
 });
 //------------------------------------
 //EDIT
+
+recipeRouter.get('/recipe/:id/edit', (req, res) => {
+    Recipe.findById(req.params.id, (err, r) => {
+        res.render('edit.ejs', {
+            r
+        })
+    })
+})
 
 //------------------------------------
 //SHOW
