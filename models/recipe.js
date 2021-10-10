@@ -17,7 +17,8 @@ const recipeSchema = Schema({
         ref: 'User'
     },
     cookTime: Number,
-    prepTime: Number
+    prepTime: Number,
+    tags: String
     
 }, { timestamps: true });
 

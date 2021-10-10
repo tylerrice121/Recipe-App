@@ -18,15 +18,10 @@
             <div class="left-side">
                 <h1><%= r.title %></h1>
                 <img src="/<%= r.img %>" style="width: 350px;">
-                <h1>IMG</h1>
                 <h4>DESCRIPTION</h4>
                 <p><%= r.description %></p>
-                <p>PREPTIME
-                    <p><%= r.prepTime %> min</p>
-                </p>
-                <p>COOKTIME
-                    <p><%= r.cookTime %> min</p>
-                </p>
+                    <p>Prep time: <%= r.prepTime %> min</p>
+                    <p>Cook time:  <%= r.cookTime %> min</p>
             </div>
             <div class="right-side">
                 <h3>INGREDIENTS</h3>
