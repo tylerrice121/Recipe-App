@@ -80,6 +80,11 @@ recipeRouter.get('/new', isAuthenticated, (req, res) => {
 });
 //------------------------------------
 //DELETE
+recipeRouter.delete('/recipe/:id', (req, res) => {
+    Recipe.findByIdAndDelete(req.params.id, (err, deletedRecipe) => {
+        res.redirect('/dashboard')
+    });
+});
 //------------------------------------
 //UPDATE
 
