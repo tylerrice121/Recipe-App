@@ -61,27 +61,35 @@
             </div>
             <div class="right-side">
                 <h3>INGREDIENTS</h3>
-                <%r.ingredients.forEach(ingredient => {%>
-                <div>
-                    <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
-                    <button id="remove" type="button">Remove</button>
-                </div>
-                <%})%>
-                <script>
-                    $(document).ready(function () {
-                        $(document).on('click', '#remove', function () {
-                            console.log('iwork')
-                            $(this).closest('div').remove();
-                        });
-                    });
-                </script>
-                <h3>STEPS</h3>
-                <%r.steps.forEach(step => {%>
-                    <div>
-                        <textarea name="ingredients" id="" cols="30" rows="8"><%= step %></textarea>
+                <ul id="inputList">
+                <%r.ingredients.forEach((ingredient, i) => {%>
+                    <div class="<%=i%>">
+                        <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
                         <button id="remove" type="button">Remove</button>
                     </div>
                 <%})%>
+                </ul>
+                <script>
+                    function addToList() {
+                        // grab and create elements
+                        let ul = document.getElementById('inputList');
+                        let newDiv = document.createElement('div');
+                        let newItem = document.createElement('textarea');
+                        let newButton = document.createElement('button')
+                        // append elements
+                        ul.appendChild(newDiv)
+                        newDiv.appendChild(newItem);
+                        newDiv.appendChild(newButton)
+                        // set attributes
+                        newButton.setAttribute('type', 'button');                       
+                        newButton.innerHTML = 'Remove';
+                        newButton.setAttribute('id', 'remove');
+                        newItem.setAttribute('id', 'removeMe');
+                        newItem.setAttribute('cols', '30');
+                        newItem.setAttribute('rows', '3');
+                        newItem.setAttribute('name', 'ingredients');
+                    }
+                    </script>
                 <script>
                     $(document).ready(function () {
                         $(document).on('click', '#remove', function () {
@@ -89,8 +97,49 @@
                             $(this).closest('div').remove();
                         });
                     });
-                </script>
+                    </script>
+                <button type="button" onclick="addToList()">Add Ingredient</button>
+                <h3>STEPS</h3>
+                <ul>
+                <%r.steps.forEach((step, i) => {%>
+
+                        <div class="<%=i%>" id="newStep">
+                            <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
+                            <button id="remove" type="button">Remove</button>
+                        </div>
+                <%})%>
+                </ul>
+                <script>
+                    function addStep() {
+                        // grab and create elements
+                        let ul = document.getElementById('newStep');
+                        let newDiv = document.createElement('div');
+                        let newItem = document.createElement('textarea');
+                        let newButton = document.createElement('button')
+                        // append elements
+                        ul.appendChild(newDiv)
+                        newDiv.appendChild(newItem);
+                        newDiv.appendChild(newButton)
+                        // set attributes
+                        newButton.setAttribute('type', 'button');                       
+                        newButton.innerHTML = 'Remove';
+                        newButton.setAttribute('id', 'remove');
+                        newItem.setAttribute('id', 'removeMe');
+                        newItem.setAttribute('cols', '30');
+                        newItem.setAttribute('rows', '3');
+                        newItem.setAttribute('name', 'ingredients');
+                    }
+                    </script>
+                    <script>
+                        $(document).ready(function () {
+                            $(document).on('click', '#remove', function () {
+                                console.log('iwork')
+                                $(this).closest('div').remove();
+                            });
+                        });
+                        </script>
                 
+                <button type="button" onclick="addStep()">Add Step</button>
             </div>
             <input type="submit" value="Save Changes">
         </form>
