@@ -9,9 +9,13 @@ const Schema = mongoose.Schema;
 const recipeSchema = Schema({
     title: String,
     description: String,
+    extLink: String,
+    linkName: String,
     img: String,
-    ingredients: String,
-    steps: String,
+    ingredients: Array,
+    steps: Array,
+    restrictions: String,
+    mealType: String,
     user: { 
         type: Schema.Types.ObjectId,
         ref: 'User'

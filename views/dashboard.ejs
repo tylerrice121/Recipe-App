@@ -23,6 +23,12 @@
                             <h2><%=recipes[i].title%></h2>                   
                         </a>
                         <img src="<%=recipes[i].img%>" style="width: 350px;">
+                        <%if (recipes[i].extLink != "") {%>
+                            <p>
+                                Courtesy of:  
+                                <a href="<%=recipes[i].extLink%>"> <%=recipes[i].linkName || recipes[i].extLink%></a>
+                            </p>              
+                        <%}%>    
                         <p><%=recipes[i].description%></p>
                         <p>Uploaded by <%=recipes[i].user.username%></p>
                     </div>

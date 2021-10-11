@@ -18,16 +18,30 @@
             <div class="left-side">
                 <h1><%= r.title %></h1>
                 <img src="/<%= r.img %>" style="width: 350px;">
-                <h4>DESCRIPTION</h4>
+                <%console.log(r.extLink == "not empty")%>
+                <%if (r.extLink != "") {%>
+                    <p>
+                        Courtesy of:  
+                        <a href="<%=r.extLink%>"> <%=r.linkName || r.extLink%></a>
+                    </p>              
+                <%}%>
                 <p><%= r.description %></p>
                     <p>Prep time: <%= r.prepTime %> min</p>
                     <p>Cook time:  <%= r.cookTime %> min</p>
             </div>
             <div class="right-side">
                 <h3>INGREDIENTS</h3>
-                <p><%= r.ingredients %> </p>
+                <ul>
+                    <%for(let i = 0; i < r.ingredients.length; i++) {%>
+                        <li><%=r.ingredients[i]%></li>
+                    <%}%>
+                </ul>
                 <h3>STEPS</h3>
-                <p><%= r.steps %></p>
+                <ul>
+                    <%for(let i = 0; i < r.steps.length; i++) {%>
+                        <li><%=r.steps[i]%></li>
+                    <%}%>
+                </ul>
             </div>
             <%if (user == r.user) {%>
             <%console.log(user)%>

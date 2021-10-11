@@ -18,9 +18,13 @@
         <div class="container">
             <form action="/recipe/<%=r._id%>/edit?_method=PUT" method="POST">
                 <div class="left-side">
-                    <h1><%= r.title %></h1>
+                    <h1>
+                        <input type="text" name="title" value="<%=r.title%>" style="width: 500px;">
+                    </h1>
+                    <p>Courtesy of:</p>
+                    Link <input type="text" name="extLink" value="<%=r.extLink%>"><br>
+                    Company Name <input type="text" name="linkName" value="<%=r.linkName%>"><br>
                     <img src="/<%= r.img %>" style="width: 350px;">
-                    <h1>IMG</h1>
                     <h4>DESCRIPTION</h4>
                     <textarea name="description" id="" cols="30" rows="5"><%= r.description %></textarea>
                     <p>PREPTIME
@@ -32,8 +36,13 @@
                 </div>
                 <div class="right-side">
                     <h3>INGREDIENTS</h3>
-                    <textarea name="ingredients" id="" cols="50" rows="20"><%= r.ingredients %></textarea>
+                    <%r.ingredients.forEach(ingredient => {%>
+                        <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
+                    <%})%>
                     <h3>STEPS</h3>
+                    <%r.steps.forEach(step => {%>
+                        <textarea name="ingredients" id="" cols="30" rows="8"><%= step %></textarea>
+                    <%})%>
                     <textarea name="steps" id="" cols="50" rows="20"><%= r.steps %></textarea>
                 </div>
                 <input type="submit" value="Save Changes">

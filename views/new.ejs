@@ -17,22 +17,30 @@
 
         <form action="/new" method="POST">
             <input type="hidden" name="user" value="<%=user%>">
+            <p>Courtesy of:</p>
+            Link <input type="text" name="extLink">
+            Company Name <input type="text" name="linkName">
             <label>Recipe Name:
                 <input type="text" name="title">
             </label><br>
-            <label>Choose Meal type
+            <label>Choose Meal Type
                 <select name="mealType">
+                    <option>None</option>
                     <option>Breakfast</option>
                     <option>Lunch</option>
                     <option>Dinner</option>
                     <option>Dessert</option>
                     <option>Snack</option>
+                    <option>Other</option>
                 </select>
             </label>
-            <label>Select a Special Tag
-                <select name="mealType">
+            <label>Dietary Restrictions
+                <select name="restrictions">
+                    <option>None</option>
                     <option>Vegan</option>
                     <option>Vegetarian</option>
+                    <option>Gluten Free</option>
+                    <option>Other</option>
                 </select>
             </label>
             <label>Image:
@@ -42,10 +50,37 @@
                 <textarea name="description" id="" cols="30" rows="5"></textarea>
             </label><br>
             <label>Ingredients:
-                <textarea name="ingredients" id="" cols="30" rows="10"></textarea>
+                <ul id="inputList">
+                    <textarea name="ingredients" cols="30" rows="3"></textarea>
+                </ul>
+                <script>
+                    function addToList() {
+                        let ul = document.getElementById('inputList');
+                        let newItem = document.createElement('textarea');
+                        ul.appendChild(newItem);
+                        newItem.setAttribute('cols', '30');
+                        newItem.setAttribute('rows', '3');
+                        newItem.setAttribute('name', 'ingredients');
+                    }
+                </script>
+                <button type="button" onclick="addToList()">Add Ingredients</button>
             </label><br>
             <label>Steps:
-                <textarea name="steps" id="" cols="30" rows="10"></textarea>
+                <ul id="stepList">
+                    <textarea name="steps" cols="30" rows="5"></textarea>
+                </ul>
+                <script>
+                    function addStep() {
+                        let ul = document.getElementById('stepList');
+                        let newStep = document.createElement('textarea');
+                        ul.appendChild(newStep);
+                        newStep.setAttribute('name', 'steps');
+                        newStep.setAttribute('cols', '30');
+                        newStep.setAttribute('rows', '5');
+                    
+                    }
+                </script>
+                <button type="button" onclick="addStep()">Add Step</button>
             </label><br>
             <label>Prep Time
                 <input type="text" name="prepTime">
@@ -55,5 +90,8 @@
             </label>
             <input type="submit" value="Add Recipe">
         </form>
+        <ul id="inputList">
+      
+        </ul>
 </body>
 </html>

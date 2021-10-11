@@ -33,7 +33,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(expressSession({
     secret: SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    maxAge: 5 * 60 * 60 * 1000
 }));
 
 app.use(express.static('public'));
