@@ -1,52 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>New Recipe</title>
 </head>
+
 <body>
-        <header>
-            <h1>Edit Recipe</h1>
-            <nav>
-                <a href="/new">add recipe</a>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/logout">Logout</a>
-            </nav>
-        </header>
-        <div class="container">
-            <form action="/recipe/<%=r._id%>/edit?_method=PUT" method="POST">
-                <div class="left-side">
-                    <h1>
-                        <input type="text" name="title" value="<%=r.title%>" style="width: 500px;">
-                    </h1>
-                    <p>Courtesy of:</p>
-                    Link <input type="text" name="extLink" value="<%=r.extLink%>"><br>
-                    Company Name <input type="text" name="linkName" value="<%=r.linkName%>"><br>
-                    <img src="/<%= r.img %>" style="width: 350px;">
-                    <h4>DESCRIPTION</h4>
-                    <textarea name="description" id="" cols="30" rows="5"><%= r.description %></textarea>
-                    <p>PREPTIME
-                        <input type="text" name="prepTime" value="<%=r.prepTime%>">
-                    </p>
-                    <p>COOKTIME
-                        <input type="text" name="cookTime" value="<%=r.cookTime%>">
-                    </p>
+    <header>
+        <h1>Edit Recipe</h1>
+        <nav>
+            <a href="/new">add recipe</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <form action="/recipe/<%=r._id%>/edit?_method=PUT" method="POST">
+            <div class="left-side">
+                <h1>
+                    <input type="text" name="title" value="<%=r.title%>" style="width: 500px;">
+                </h1>
+                <label>Choose Meal Type
+                    <select name="mealType">
+                        <option>None</option>
+                        <option>Breakfast</option>
+                        <option>Lunch</option>
+                        <option>Dinner</option>
+                        <option>Dessert</option>
+                        <option>Snack</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+                <label>Dietary Restrictions
+                    <select name="restrictions">
+                        <option>None</option>
+                        <option>Vegan</option>
+                        <option>Vegetarian</option>
+                        <option>Gluten Free</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+                <p>Courtesy of:</p>
+                Link <input type="text" name="extLink" value="<%=r.extLink%>"><br>
+                Company Name <input type="text" name="linkName" value="<%=r.linkName%>"><br>
+                <img src="/<%= r.img %>" style="width: 350px;">
+                <h4>DESCRIPTION</h4>
+                <textarea name="description" id="" cols="30" rows="5"><%= r.description %></textarea>
+                <p>PREPTIME
+                    <input type="text" name="prepTime" value="<%=r.prepTime%>">
+                </p>
+                <p>COOKTIME
+                    <input type="text" name="cookTime" value="<%=r.cookTime%>">
+                </p>
+            </div>
+            <div class="right-side">
+                <h3>INGREDIENTS</h3>
+                <%r.ingredients.forEach(ingredient => {%>
+                <div>
+                    <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
+                    <button id="remove" type="button">Remove</button>
                 </div>
-                <div class="right-side">
-                    <h3>INGREDIENTS</h3>
-                    <%r.ingredients.forEach(ingredient => {%>
-                        <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
-                    <%})%>
-                    <h3>STEPS</h3>
-                    <%r.steps.forEach(step => {%>
+                <%})%>
+                <script>
+                    $(document).ready(function () {
+                        $(document).on('click', '#remove', function () {
+                            console.log('iwork')
+                            $(this).closest('div').remove();
+                        });
+                    });
+                </script>
+                <h3>STEPS</h3>
+                <%r.steps.forEach(step => {%>
+                    <div>
                         <textarea name="ingredients" id="" cols="30" rows="8"><%= step %></textarea>
-                    <%})%>
-                    <textarea name="steps" id="" cols="50" rows="20"><%= r.steps %></textarea>
-                </div>
-                <input type="submit" value="Save Changes">
-            </form>
-        </div>
+                        <button id="remove" type="button">Remove</button>
+                    </div>
+                <%})%>
+                <script>
+                    $(document).ready(function () {
+                        $(document).on('click', '#remove', function () {
+                            console.log('iwork')
+                            $(this).closest('div').remove();
+                        });
+                    });
+                </script>
+                
+            </div>
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
 </body>
+
 </html>
