@@ -56,18 +56,19 @@
                 </ul>
                 <script>
                     function addToList() {
+                        // grab and create elements
                         let ul = document.getElementById('inputList');
                         let newDiv = document.createElement('div');
                         let newItem = document.createElement('textarea');
                         let newButton = document.createElement('button')
+                        // append elements
                         ul.appendChild(newDiv)
                         newDiv.appendChild(newItem);
                         newDiv.appendChild(newButton)
-                        newButton.setAttribute('type', 'button');
-                        
+                        // set attributes
+                        newButton.setAttribute('type', 'button');                       
                         newButton.innerHTML = 'Remove';
                         newButton.setAttribute('id', 'remove');
-
                         newItem.setAttribute('id', 'removeMe');
                         newItem.setAttribute('cols', '30');
                         newItem.setAttribute('rows', '3');
@@ -77,11 +78,7 @@
                     <script>
                         $(document).ready(function(){
                             $(document).on('click', '#remove',function() {
-                             
-                                console.log($('#remove').closest('#removeMe'))
                                 $('#remove').closest('div').remove();
-  
-
                             });
                         });
                     </script>
@@ -93,15 +90,37 @@
                 </ul>
                 <script>
                     function addStep() {
+                        //create and grab elements
                         let ul = document.getElementById('stepList');
+                        let newDiv = document.createElement('div');
                         let newStep = document.createElement('textarea');
-                        ul.appendChild(newStep);
+                        let button = document.createElement('button')
+                        //append elements
+                        ul.appendChild(newDiv);
+                        newDiv.appendChild(newStep);
+                        newDiv.appendChild(button);
+
+                        //set attributes
+                        button.setAttribute('type', 'button');                       
+                        button.innerHTML = 'Remove';
+                        button.setAttribute('id', 'remove');
                         newStep.setAttribute('name', 'steps');
                         newStep.setAttribute('cols', '30');
                         newStep.setAttribute('rows', '5');
                     
                     }
+
                 </script>
+                <script>
+                    $(document).ready(function(){
+                        $(document).on('click', '#remove',function() {
+                            $('#remove').closest('div').remove();
+                        });
+                    });
+                </script>
+
+
+
                 <button type="button" onclick="addStep()">Add Step</button>
             </label><br>
             <label>Prep Time
