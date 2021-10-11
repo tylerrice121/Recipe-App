@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>New Recipe</title>
 </head>
 <body>
@@ -56,13 +57,34 @@
                 <script>
                     function addToList() {
                         let ul = document.getElementById('inputList');
+                        let newDiv = document.createElement('div');
                         let newItem = document.createElement('textarea');
-                        ul.appendChild(newItem);
+                        let newButton = document.createElement('button')
+                        ul.appendChild(newDiv)
+                        newDiv.appendChild(newItem);
+                        newDiv.appendChild(newButton)
+                        newButton.setAttribute('type', 'button');
+                        
+                        newButton.innerHTML = 'Remove';
+                        newButton.setAttribute('id', 'remove');
+
+                        newItem.setAttribute('id', 'removeMe');
                         newItem.setAttribute('cols', '30');
                         newItem.setAttribute('rows', '3');
                         newItem.setAttribute('name', 'ingredients');
                     }
-                </script>
+                    </script>
+                    <script>
+                        $(document).ready(function(){
+                            $(document).on('click', '#remove',function() {
+                             
+                                console.log($('#remove').closest('#removeMe'))
+                                $('#remove').closest('div').remove();
+  
+
+                            });
+                        });
+                    </script>
                 <button type="button" onclick="addToList()">Add Ingredients</button>
             </label><br>
             <label>Steps:
