@@ -4,36 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
     <title>Hello <%=user.username%></title>
 </head>
 <body>
-    <header>
+    <header class="header">
+        <h1>Dashboard</h1>
         <nav>
-            <h1>DASHBOARD</h1>
             <a href="/new">add recipe</a>
             <a href="/logout">Logout</a>
         </nav>
     </header>
-        <h1>Hello <%=user.username%></h1>
+    <div class="topLine">
+        <div class="filters">
+                    <a href="/dashboard" style="border-right: 2px solid black; width: 100px;">All</a>
+                    <a href="/dashboard/dessert" style="border-right: 2px solid black; width: 100px;"> Dessert</a>
+                    <a href="/dashboard/veggie" style="width: 125px;">Vegetarian</a>
+        </div>
+    </div>
+        <h4>Popular Now</h4>
         <div class="container">
+            
             <div class="recipes">
                 <%for (let i = 0; i < recipes.length; i++) {%>
-                    <div>
-                        <a href="/recipe/<%=recipes[i]._id%>">
-                            <h2><%=recipes[i].title%></h2>                   
-                        </a>
-                        <img src="<%=recipes[i].img%>" style="width: 350px;">
-                        <%if (recipes[i].extLink != "") {%>
-                            <p>
-                                Courtesy of:  
-                                <a href="<%=recipes[i].extLink%>"> <%=recipes[i].linkName || recipes[i].extLink%></a>
-                            </p>              
-                        <%}%>    
-                        <p><%=recipes[i].description%></p>
-                        <p>Uploaded by <%=recipes[i].user.username%></p>
-                    </div>
-                <%}%>
-            </div>
+                    <%if(recipes[i].restrictions == 'Vegetarian' || 'None'){%>
+                        <div>
+                            <a href="/recipe/<%=recipes[i]._id%>">
+                                <h2><%=recipes[i].title%></h2>                   
+                            </a>
+                            <img src="<%=recipes[i].img%>" style="width: 350px;">
+                            <%if (recipes[i].extLink != "") {%>
+                                <p>
+                                    Courtesy of:  
+                                    <a href="<%=recipes[i].extLink%>"> <%=recipes[i].linkName || recipes[i].extLink%></a>
+                                </p>              
+                            <%}%>    
+                            <p><%=recipes[i].description%></p>
+                            <p>Uploaded by <%=recipes[i].user.username%></p>
+                        </div>
+                        <%}%>
+                    <%}%>
+                </div>
         </div>
 </body>
 </html>
