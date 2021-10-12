@@ -26,31 +26,54 @@
             <a href="/dashboard/dessert" style="border-right: 2px solid black; width: 100px;"> Dessert</a>
             <a href="/dashboard/veggie" style="width: 125px;">Vegetarian</a>
         </div>
-        <div class="popular">
-            <h4>Popular Now</h4>
-        </div>
+
     </div>
     <div class="container">
 
         <div class="recipes">
-            <%for (let i = 0; i < recipes.length; i++) {%>
-            <%if(recipes[i].restrictions == 'Vegetarian' || 'None'){%>
-            <div>
-                <a href="/recipe/<%=recipes[i]._id%>">
-                    <h2><%=recipes[i].title%></h2>
-                </a>
-                <img src="<%=recipes[i].img%>" style="width: 350px;">
-                <%if (recipes[i].extLink != "") {%>
-                <p>
-                    Courtesy of:
-                    <a href="<%=recipes[i].extLink%>"> <%=recipes[i].linkName || recipes[i].extLink%></a>
-                </p>
-                <%}%>    
+            <%for (let i = 0; i < 6; i++) {%>
+            <%if(i % 2 == 0){%>
+            <div id="id<%=i%>" class="recipe-block">
+                <div class="imgDiv">
+                    <img src="<%=recipes[i].img%>" class="dashImg">
+                </div>
+                <div class="textDiv">
+                    <a href="/recipe/<%=recipes[i]._id%>">
+                        <h2><%=recipes[i].title%></h2>
+                    </a>
+                    <%if (recipes[i].extLink != "") {%>
+                    <p>
+                        Courtesy of:
+                        <a href="<%=recipes[i].extLink%>"> <%=recipes[i].linkName || recipes[i].extLink%></a>
+                    </p>
+                    <%}%>    
+                        <p><%=recipes[i].description%></p>
+                    <p>Uploaded by <%=recipes[i].user.username%></p>
+                    <button>View Recipe</button>
+                </div>
+            </div>
+            <%} else {%>
+            <div id="id<%=i%>" class="recipe-block">
+                <div class="textDiv">
+                    <a href="/recipe/<%=recipes[i]._id%>">
+                        <h2><%=recipes[i].title%></h2>
+                    </a>
+                    <%if (recipes[i].extLink != "") {%>
+                    <p>
+                        Courtesy of:
+                        <a href="<%=recipes[i].extLink%>"> <%=recipes[i].linkName || recipes[i].extLink%></a>
+                    </p>
+                    <%}%>    
                             <p><%=recipes[i].description%></p>
-                <p>Uploaded by <%=recipes[i].user.username%></p>
+                    <p>Uploaded by <%=recipes[i].user.username%></p>
+                    <button>View Recipe</button>
+                </div>
+                <div class="imgDiv">
+                    <img src="<%=recipes[i].img%>" class="dashImg">
+                </div>
             </div>
             <%}%>
-                    <%}%>
+            <%}%>
         </div>
     </div>
 </body>
