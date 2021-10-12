@@ -49,7 +49,8 @@
                 <p>Courtesy of:</p>
                 Link <input type="text" name="extLink" value="<%=r.extLink%>"><br>
                 Company Name <input type="text" name="linkName" value="<%=r.linkName%>"><br>
-                <img src="/<%= r.img %>" style="width: 350px;">
+                <img src="/<%= r.img %>" style="width: 350px;"><br>
+                <input type="text" name="img" style="width: 350px"value="<%= r.img %>">
                 <h4>DESCRIPTION</h4>
                 <textarea name="description" id="" cols="30" rows="5"><%= r.description %></textarea>
                 <p>PREPTIME
@@ -64,9 +65,13 @@
                 <ul id="inputList">
                 <%r.ingredients.forEach((ingredient, i) => {%>
                     <div class="<%=i%>">
+                    <%if(i == 0){%>
                         <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
-                        <button id="remove" type="button">Remove</button>
-                    </div>
+                    <%} else {%>
+                        <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
+                        <button type="button" id="remove">Remove</button>
+                    <%}%>
+                    </div>              
                 <%})%>
                 </ul>
                 <script>
@@ -97,16 +102,20 @@
                             $(this).closest('div').remove();
                         });
                     });
-                    </script>
+                </script>
                 <button type="button" onclick="addToList()">Add Ingredient</button>
+        
                 <h3>STEPS</h3>
                 <ul>
                 <%r.steps.forEach((step, i) => {%>
-
-                        <div class="<%=i%>" id="newStep">
+                    <div class="<%=i%>" id="newStep">
+                        <%if(i == 0){%>
                             <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
-                            <button id="remove" type="button">Remove</button>
-                        </div>
+                        <%} else {%>
+                            <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
+                            <button type="button" id="remove">Remove</button>
+                        <%}%>
+                    </div>
                 <%})%>
                 </ul>
                 <script>
@@ -127,7 +136,7 @@
                         newItem.setAttribute('id', 'removeMe');
                         newItem.setAttribute('cols', '30');
                         newItem.setAttribute('rows', '3');
-                        newItem.setAttribute('name', 'ingredients');
+                        newItem.setAttribute('name', 'steps');
                     }
                     </script>
                     <script>
