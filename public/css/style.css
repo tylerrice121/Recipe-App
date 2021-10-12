@@ -142,9 +142,7 @@ a{
     box-shadow: 2px 2px 3px rgb(179, 179, 179);
 }
 
-
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) {
     nav {
         display: flex;
         text-align: center;

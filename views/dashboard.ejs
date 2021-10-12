@@ -72,7 +72,7 @@
                     <%}%>    
                             <p><%=recipes[i].description%></p>
                     <p>Uploaded by <%=recipes[i].user.username%></p>
-                    <button class="view-recipe-button">View Recipe</button>
+                    <a class="view-recipe-button" href="/recipe/<%=recipes[i]._id%>">View Recipe</a>
                 </div>
                 <div class="imgDiv">
                     <img src="<%=recipes[i].img%>" class="dashImg">
