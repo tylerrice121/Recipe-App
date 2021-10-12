@@ -19,6 +19,22 @@ header h1 {
     line-height: 10px;
 }
 
+.hat-div{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 155px;
+
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin-left: 50px;
+
+}
+
 h4 {
     margin-top: 0;
     margin-bottom: 0;
@@ -44,12 +60,12 @@ nav {
 .topLine {
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
-    margin-top: 0;
+    margin-bottom: 0;
+    margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+    justify-content: center;
     align-items: flex-end;
-    justify-content:space-between;
  
 }
 
@@ -57,7 +73,7 @@ nav {
     display: flex;
     text-align: center;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     height: 50px;
     min-width: fit-content;
     text-decoration: none;
@@ -66,18 +82,19 @@ nav {
 a{
     text-decoration: none;
 }
-
 .recipes {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 15px;
+    margin-top: 0;
+
 }
 .recipe-block{
     display: flex;
+    width: 60%;
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    /* border: 2px solid black; */
 }
 .imgDiv {
     margin-right: 10px;
@@ -86,8 +103,11 @@ a{
     margin-bottom: 20px;
 }
 .textDiv {
+    width: 75%;
     display: flex;
     flex-direction: column;
+    padding-left: 100px;
+    padding-right: 100px;
     margin-right: 10px;
     margin-left: 10px;
     justify-content: space-around;
@@ -100,9 +120,6 @@ a{
     width: 350px;
 }
 
-#id4 {
-    width: 100%;
-}
 
 
 @media only screen and (max-width: 600px) {
@@ -120,9 +137,22 @@ a{
         line-height: 10px;
         margin-bottom: 10px;
     }
+
+    .hat-div{
+        display: none;
+        width: 0;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 0px;
+        margin-left: 0;
+    }
     header {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         margin-top: 0;
         justify-content: center;
@@ -142,20 +172,27 @@ a{
         height: 50px;
         width: 100vw;
         text-decoration: none;
+        font-size: small;
+    }
+    .chef-hat {
+        display: none;
+        padding-left: 75px;
     }
 
     .recipes {
         display: flex;
-        flex-wrap: wrap;
-        margin-top: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
     }
     .recipe-block{
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
-        margin-top: 10px;
+        margin-top: 0px;
         margin-left: 10px;
         margin-right: 10px;
-        /* border: 2px solid black; */
+
     }
     .imgDiv {
         margin-right: 10px;
@@ -168,6 +205,8 @@ a{
         flex-direction: column;
         margin-right: 10px;
         margin-left: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
         justify-content: space-around;
         margin-bottom: 10px;
         margin-top: 10px;
@@ -178,9 +217,6 @@ a{
         width: 300px;
     }
     
-    #id4 {
-        width: 100%;
-    }
 
   }
 

@@ -9,15 +9,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
-    <title>Hello <%=user.username%></title>
+    <title>Dashboard</title>
 </head>
 
 <body>
     <header class="header">
-        <h1>Dashboard</h1>
+        <div class="hat-div">
+            <img class="chef-hat" src="images/clipart16385.png" style="width: 55px;">
+
+        </div>
+        <div class="title">
+            <h1>Dashboard</h1>
+        </div>
         <nav>
-            <a href="/new" style="border-right: 2px solid white; width: 100px; color: white;">Add</a>
-            <a href="/logout" style="width: 100px; color: white;">Logout</a>
+            <a href="/new" style="border-right: 2px solid black; width: 92px; color: black;">Add</a>
+            <a href="/logout" style="width: 100px; color: black; margin-left: 10px;">Logout</a>
         </nav>
     </header>
     <div class="topLine">
