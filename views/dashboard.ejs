@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
-    <title>Dashboard</title>
+    <title>Home</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
         </div>
         <div class="title">
-            <h1>Dashboard</h1>
+            <h1>HomeCooked</h1>
         </div>
         <nav>
             <a href="/new" style="border-right: 2px solid black; width: 92px; color: black;">Add</a>
@@ -28,9 +28,9 @@
     </header>
     <div class="topLine">
         <div class="filters">
-            <a href="/dashboard" style="border-right: 2px solid black; width: 100px;">All</a>
-            <a href="/dashboard/dessert" style="border-right: 2px solid black; width: 100px;"> Dessert</a>
-            <a href="/dashboard/veggie" style="width: 125px;">Vegetarian</a>
+            <a class="filter" href="/dashboard" style="border-right: 2px solid gray; width: 100px;">All</a>
+            <a class="filter" href="/dashboard/dessert" style="border-right: 2px solid gray; width: 100px;"> Dessert</a>
+            <a class="filter" href="/dashboard/veggie" style="width: 125px;">Vegetarian</a>
         </div>
 
     </div>
@@ -55,7 +55,7 @@
                     <%}%>    
                         <p><%=recipes[i].description%></p>
                     <p>Uploaded by <%=recipes[i].user.username%></p>
-                    <button>View Recipe</button>
+                    <a class="view-recipe-button" href="/recipe/<%=recipes[i]._id%>">View Recipe</a>
                 </div>
             </div>
             <%} else {%>
@@ -72,7 +72,7 @@
                     <%}%>    
                             <p><%=recipes[i].description%></p>
                     <p>Uploaded by <%=recipes[i].user.username%></p>
-                    <button>View Recipe</button>
+                    <button class="view-recipe-button">View Recipe</button>
                 </div>
                 <div class="imgDiv">
                     <img src="<%=recipes[i].img%>" class="dashImg">
