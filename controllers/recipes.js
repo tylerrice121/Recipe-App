@@ -12,6 +12,8 @@ const fs = require('fs');
 const path = require('path');
 const uuid = require('uuid').v4;
 const MQ = require('mediaquery');
+const cloudinary = require('cloudinary').v2;
+
 
 
 const storage = multer.diskStorage({
@@ -102,11 +104,21 @@ recipeRouter.put('/recipe/:id/edit', (req, res) => {
 //------------------------------------
 //CREATE
 recipeRouter.post('/new', (req, res) => {
-    Recipe.create(req.body, (err, newRecipe) => {
-        res.redirect('/dashboard')
-        console.log(req.body)
-    });
+    const photo = req.files.imageURL;
+    photo.mv(`./uploads/${photo.name}`)
+    cloudinary.uploader.upload(`./uploads/${photo.name}`).then(result => {
+        req.body.imageURL = result.secure_url;
+        Recipe.create(req.body, (err, newRecipe) => {
+            res.redirect('/dashboard')
+    
+        });
+
+    })
 });
+
+// Recipe.create(req.body, (err, newRecipe) => {
+//     res.redirect('/dashboard')
+//     console.log(req.body)
 //------------------------------------
 //EDIT
 

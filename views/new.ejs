@@ -16,7 +16,8 @@
             </nav>
         </header>
 
-        <form action="/new" method="POST">
+        <form action="/new" method="POST" enctype="multipart/form-data">
+            <input type="file" name="imageURL">
             <input type="hidden" name="user" value="<%=user%>">
             <p>Courtesy of:</p>
             Link <input type="text" name="extLink">

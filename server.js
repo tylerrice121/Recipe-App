@@ -6,16 +6,15 @@ const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const DATABASE_URL = process.env.DATABASE_URL
-const SECRET = process.env.SECRET
-const fs = require('fs');
-const path = require('path');
-const MQ = require('mediaquery');
 const expressSession = require('express-session');
 const userController = require('./controllers/users');
 const indexController = require('./controllers/index');
 const recipeController = require('./controllers/recipes');
+const cloudinary = require('cloudinary').v2;
+const expressFileUpload = require('express-fileupload');
 
+
+const {DATABASE_URL, PORT, SECRET, API_KEY, API_SECRET, CLOUD_NAME} = process.env
 
 //====================================
 //             DATABASE
@@ -29,6 +28,12 @@ db.on('error', () => console.log(`${error.message} mongodb`));
 //====================================
 //             MIDDLEWARE
 //====================================
+cloudinary.config({ 
+    cloud_name: CLOUD_NAME, 
+    api_key: API_KEY, 
+    api_secret: API_SECRET 
+ });
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use(expressSession({
@@ -39,6 +44,7 @@ app.use(expressSession({
 }));
 
 app.use(express.static('public'));
+app.use(expressFileUpload({ createParentPath: true }));
 app.use(methodOverride('_method'));
 
 app.use('/', userController);
@@ -55,7 +61,7 @@ app.use('/', recipeController);
 //====================================
 //             LISTENER
 //====================================
-const port = process.env.PORT || 3000;
+const port = PORT || 3000;
 app.listen(port, () => {
     console.log(`listening on port ${port}`)
 });

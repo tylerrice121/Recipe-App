@@ -11,6 +11,7 @@ const recipeSchema = Schema({
     description: String,
     extLink: String,
     linkName: String,
+    imageURL: {type: String, default:'/images/Brie-and-Cheddar-Apple-Beer-Soup-1.jpeg'},
     img: String,
     ingredients: Array,
     steps: Array,
