@@ -4,20 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intro To Auth</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    <title>Home</title>
 </head>
-<body>
-    <header>
-        <h1>Home</h1>
+<body class="home-body">
+    <header class="header">
+        <div class="title">
+            <h1>HomeCooked</h1>
+        </div>
         <nav>
             <% if(user){ %>
-                <a href="/logout">Logout</a>
+                <a href="/dashboard"style="border-right: 2px solid black; width: 120px; color: black;">Dashboard</a>
+                <a href="/logout" style="width: 92px; color: black;">Logout</a>
             <%} else {%>
-                <a href="/login">Login</a>
-                <a href="/signup">Signup</a>
+                <a href="/login" style="border-right: 2px solid black; width: 92px; color: black;">Login</a>
+                <a href="/signup" style="border-right: 2px solid black; width: 92px; color: black;">Signup</a>
+                <a href="/dashboard"style="width: 120px; color: black;">Dashboard</a>
             <%}%>
-            <a href="/dashboard">Dashboard</a>
         </nav>
     </header>
+    <div class="container-home">
+        <div class="main-home">
+            <div class="landing-info">
+                <div class="title logo">
+                    <h1>HomeCooked</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
