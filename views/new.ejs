@@ -17,6 +17,7 @@
         </header>
 
         <form action="/new" method="POST" enctype="multipart/form-data">
+            <h4>Upload Image</h4><br>
             <input type="file" name="imageURL">
             <input type="hidden" name="user" value="<%=user%>">
             <p>Courtesy of:</p>
@@ -44,9 +45,6 @@
                     <option>Gluten Free</option>
                     <option>Other</option>
                 </select>
-            </label>
-            <label>Image:
-                <input type="text" name="img">
             </label><br>
             <label>Description:
                 <textarea name="description" id="" cols="30" rows="5"></textarea>

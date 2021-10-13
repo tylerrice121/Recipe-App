@@ -17,8 +17,10 @@
         <div class="container">
             <div class="left-side">
                 <h1><%= r.title %></h1>
-                <img src="<%= r.imageURL%>" style="width: 350px;">
-                <img src="/<%= r.img %>" style="width: 350px;">
+                <img src="<%= r.imageURL%>" style="width: 350px;"><br>
+                <%if (user == r.user) {%>
+                    <a href="/recipe/<%=r._id%>/image">Update Image</a>
+                <%}%>
                 <%console.log(r.extLink == "not empty")%>
                 <%if (r.extLink != "") {%>
                     <p>
@@ -45,7 +47,6 @@
                 </ul>
             </div>
             <%if (user == r.user) {%>
-            <%console.log(user)%>
             <a href="/recipe/<%=r._id%>/edit">EDIT RECIPE</a>
             <form action="/recipe/<%=r._id%>?_method=DELETE" method="POST">
                 <input type="submit"value="DELETE RECIPE">
