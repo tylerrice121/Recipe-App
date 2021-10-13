@@ -355,8 +355,71 @@ body {
         font-family: 'Birthstone', cursive;
         font-size: 30px;
         line-height: 10px;
-        letter-spacing: 5px;
+        letter-spacing: 3px;
     }
+    .logo h1 {
+        font-family: 'Birthstone', cursive;
+        font-size: 75px;
+        line-height: 10px;
+        color: white;
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 30px;
+        margin-right: 50px;
+        margin-left: 30px;
+    }
+    .landing-info{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0,0,0,0.7);;
+        height: 500px;
+        width: 350px;
+        border-radius: 5px
+    }
+    .home-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        width: 120px;
+        height: 40px;
+        margin-top: 25px;
+        border: 3px solid #DEB886;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        font-size: small;
+    }
+}
+
+/* Login */
+
+/* ::-webkit-input-placeholder{
+    appearance: none;
+    background-color: transparent;
+} */
+
+.text-line:-webkit-autofill,
+.text-line:-webkit-autofill:hover,
+.text-line:-webkit-autofill:focus,
+.text-line:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    
+}
 
 
+.text-line{
+     
+    -webkit-text-fill-color: white;
+    -webkit-tap-highlight-color: none;
+
+    background-color: transparent;
+    color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #DEB886;
 }
