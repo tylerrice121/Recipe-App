@@ -15,22 +15,22 @@
         <div class="main-home">
             <div class="landing-info">
                 <div class="login-title">
-                    <h1 style="color: white;">Login</h1>
+                    <h1 style="color: white;" id="login-title">Login</h1>
                 </div>
                     <%if(error) {%>
                     <p style="color: white;"><%=error%></p>
                     <%}%>
                     
-                    <form action="/login" method="POST">
-                        <label style="color: white;">Username: <br>
+                <form action="/login" method="POST" class="login-form">
+                        <label style="color: gray;" class="username">Username <br>
                             <input type="text" name="username" placeholder="Type your username" class="text-line">
                         </label><br>
-                        <label style="color: white;">Password: <br>
+                        <label style="color: gray;" class="pw">Password <br>
                             <input type="password" name="password" placeholder="Type your password" class="text-line">
                         </label><br>
-                        <input type="submit" value="Login" >
-                    </form>
-                    <a href="/signup" style="color: cornflowerblue;">Signup</a>
+                        <input type="submit" value="Login" class="login-btn">
+                </form>
+                <a href="/signup" style="color: cornflowerblue;">Signup</a>
             </div>
         </div>
     </div>
