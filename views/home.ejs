@@ -11,26 +11,25 @@
     <title>Home</title>
 </head>
 <body class="home-body">
-    <header class="header">
-        <div class="title">
-            <h1>HomeCooked</h1>
-        </div>
-        <nav>
-            <% if(user){ %>
-                <a href="/dashboard"style="border-right: 2px solid black; width: 120px; color: black;">Dashboard</a>
-                <a href="/logout" style="width: 92px; color: black;">Logout</a>
-            <%} else {%>
-                <a href="/login" style="border-right: 2px solid black; width: 92px; color: black;">Login</a>
-                <a href="/signup" style="border-right: 2px solid black; width: 92px; color: black;">Signup</a>
-                <a href="/dashboard"style="width: 120px; color: black;">Dashboard</a>
-            <%}%>
-        </nav>
-    </header>
+
     <div class="container-home">
         <div class="main-home">
             <div class="landing-info">
                 <div class="title logo">
                     <h1>HomeCooked</h1>
+                </div>
+                <div class="explainer">
+                    <p>An online recipe rolodex</p>
+                </div>
+                <div class="login-buttons">
+                    <% if(user){ %>
+                        <a class="home-button" href="/dashboard">Dashboard</a>
+                        <a class="home-button" href="/logout">Logout</a>
+                    <%} else {%>
+                        <a class="home-button" href="/login">Login</a>
+                        <a class="home-button" href="/signup">Signup</a>
+                        <a class="home-button" href="/dashboard">Dashboard</a>
+                    <%}%>
                 </div>
             </div>
         </div>
