@@ -9,7 +9,9 @@ header {
     padding-right: 30px;
     padding-left: 30px;
     padding-top: 15px;
-    background-color: burlywood;
+    /* background-color: burlywood; */
+    background: linear-gradient(90deg, rgba(241,183,118,1) 0%, rgba(226,191,152,0.8752886836027713) 35%);
+    
     margin-left: 0;
     box-shadow: 2px 2px 3px rgb(179, 179, 179);
 }
