@@ -90,16 +90,33 @@ recipeRouter.delete('/recipe/:id', (req, res) => {
 //------------------------------------
 //UPDATE
 
-recipeRouter.put('/recipe/:id/edit', (req, res) => {
-    Recipe.findByIdAndUpdate(req.params.id, req.body, 
-        {
-            new: true
-        },
-        (err, updatedRecipe) => {
-            res.redirect(`/recipe/${req.params.id}`)
-        }
-    );
+recipeRouter.post('/new', (req, res) => {
+    const photo = req.files.imageURL;
+    photo.mv(`./uploads/${photo.name}`)
+    cloudinary.uploader.upload(`./uploads/${photo.name}`).then(result => {
+        req.body.imageURL = result.secure_url;
+        Recipe.create(req.body, (err, newRecipe) => {
+            res.redirect('/dashboard')
+    
+        });
+
+    })
 });
+
+recipeRouter.put('/recipe/:id/edit', (req, res) => {
+    let recipe = Recipe.findById(req.params.id);
+    const photo = req.files.imageURL;
+    photo.mv(`./uploads/${photo.name}`);
+    cloudinary.uploader.destroy(recipe.imageURL);
+    cloudinary.uploader.upload(`./uploads/${photo.name}`).then(result => {
+        req.body.imageURL = result.secure_url;
+        Recipe.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        }, (err, updatedRecipe) => {
+            res.redirect(`/recipe/${req.params.id}`)
+        })
+    })
+})
 
 //------------------------------------
 //CREATE
