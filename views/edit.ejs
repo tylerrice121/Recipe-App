@@ -50,8 +50,8 @@
                 Link <input type="text" name="extLink" value="<%=r.extLink%>"><br>
                 Company Name <input type="text" name="linkName" value="<%=r.linkName%>"><br>
                 <img src="/<%= r.img %>" style="width: 350px;"><br>
-                <input type="text" name="img" style="width: 350px"value="<%= r.img %>">
-                <input type="file" name="imageURL">
+                <a href="/recipe/<%=r._id%>/image">Update Image</a>
+                
                 <h4>DESCRIPTION</h4>
                 <textarea name="description" id="" cols="30" rows="5"><%= r.description %></textarea>
                 <p>PREPTIME

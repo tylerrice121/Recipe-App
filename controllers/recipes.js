@@ -90,20 +90,18 @@ recipeRouter.delete('/recipe/:id', (req, res) => {
 //------------------------------------
 //UPDATE
 
-recipeRouter.post('/new', (req, res) => {
-    const photo = req.files.imageURL;
-    photo.mv(`./uploads/${photo.name}`)
-    cloudinary.uploader.upload(`./uploads/${photo.name}`).then(result => {
-        req.body.imageURL = result.secure_url;
-        Recipe.create(req.body, (err, newRecipe) => {
-            res.redirect('/dashboard')
-    
-        });
-
-    })
-});
 
 recipeRouter.put('/recipe/:id/edit', (req, res) => {
+
+        Recipe.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        }, (err, updatedRecipe) => {
+            res.redirect(`/recipe/${req.params.id}`)
+        })
+
+})
+
+recipeRouter.put('/recipe/:id/image', (req, res) => {
     let recipe = Recipe.findById(req.params.id);
     const photo = req.files.imageURL;
     photo.mv(`./uploads/${photo.name}`);
@@ -133,15 +131,19 @@ recipeRouter.post('/new', (req, res) => {
     })
 });
 
-// Recipe.create(req.body, (err, newRecipe) => {
-//     res.redirect('/dashboard')
-//     console.log(req.body)
 //------------------------------------
 //EDIT
 
 recipeRouter.get('/recipe/:id/edit', (req, res) => {
     Recipe.findById(req.params.id, (err, r) => {
         res.render('edit.ejs', {
+            r
+        })
+    })
+})
+recipeRouter.get('/recipe/:id/image', (req, res) => {
+    Recipe.findById(req.params.id, (err, r) => {
+        res.render('newimage.ejs', {
             r
         })
     })
