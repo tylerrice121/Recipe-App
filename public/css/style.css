@@ -814,6 +814,72 @@ header.new {
     box-shadow: 2px 2px 3px rgb(179, 179, 179);
 }
 
+.container-new{
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+
+    padding-left: 0;
+    padding-right: 0;
+}
+.container-new-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+
+    width: 100%;
+    margin-top: 50px;
+    padding-left: 0;
+
+}
+textarea {
+    width: 250px !important;
+}
+.left-new{
+
+    padding-left: 20px;
+    width: 90%;
+    line-height: 30px;
+}
+.right-new{
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 90%;
+}
+#uploader {
+    display: none;
+}
+#remove {
+    width: 10px;
+}
+.new-buttons{
+    background-color: transparent;
+    border-color: #DEB886;
+    border-radius: 5px;
+    border: 2px solid #DEB886;
+    color: gray;
+    width: 120px;
+    height: 40px;
+    font-size: small;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+.newdiv-new{
+
+    margin: 0;
+    height: 85px;
+}
+.meal-diet{
+    margin-top: 20px;
+}
+.cook-prep{
+    margin-top: 25px;
+}
+
 
 
 
