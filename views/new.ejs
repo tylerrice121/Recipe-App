@@ -21,7 +21,7 @@
             <h1>HomeCooked</h1>
         </div>
         <nav>
-            <a href="/dashboard" style="border-right: 2px solid black; width: 130px; color: black;">Home</a>
+            <a href="/dashboard" style="border-right: 2px solid black; width: 115px; color: black;">Home</a>
             <a href="/myrecipes" style="border-right: 2px solid black; width: 130px; color: black;">MyRecipes</a>
             <a href="/logout" style="width: 97px; color: black; margin-left: 10px;">Logout</a>
         </nav>
@@ -31,24 +31,26 @@
         <form action="/new" method="POST" enctype="multipart/form-data" class="container-new-form">
             <div class="left-new">
                 <label>Recipe Name <br>
-                    <input type="text" name="title">
+                    <input type="text" name="title" style="margin-bottom: 20px">
                 </label><br>
-                <p style="font-size: small;">If this recipe is not yours, please provide credit here</p>
-                Company / Chef Name <br><input type="text" name="linkName"> <br>
-                Link <br><input type="text" name="extLink">
-                <div class="imgupload">
-                    <label>Upload Image <br>
+                <div class="credits" style="border-top: 2px solid gray; width: 60%;">
+                    <p style="font-size: small;">If this recipe is not yours, please provide credit here</p>
+                    Company / Chef Name <br><input type="text" name="linkName"> <br>
+                    Link <br><input type="text" name="extLink">
+                </div>
+                <div class="imgupload" style="margin-top: 10px; border-top: 2px solid gray; width: 60%; padding-top: 15px;">
+                    <label style="margin-bottom: 20px;">Upload Image <br>
 
                         <%if (error) {%>
-                            <p style="color: red; font-size: small;"><%=error%></p>
+                            <p style="color: red; font-size: small; margin-top: 0;"><%=error%></p>
                         <%}%>
-                        <label class="new-buttons" style="padding: 10px;"> Upload File
+                        <label class="new-buttons" style="padding: 5px; margin-top: 50px;"> Upload File
 
                             <input type="file" name="imageURL" id="uploader">
                         </label>
                     </label><br>
                 </div>
-                <div class="cook-prep">
+                <div class="cook-prep" style="border-top: 2px solid gray; width: 60%; padding-top: 15px;">
                     <label>Prep Time <br>
                         <input type="text" name="prepTime">
                     </label> <br>
@@ -57,32 +59,35 @@
                     </label> <br>
                 </div>
                 <input type="hidden" name="user" value="<%=user%>">
-                <label>Choose Meal Type <br>
-                    <select name="mealType">
-                        <option>None</option>
-                        <option>Breakfast</option>
-                        <option>Lunch</option>
-                        <option>Dinner</option>
-                        <option>Dessert</option>
-                        <option>Snack</option>
-                        <option>Other</option>
-                    </select>
-                </label> <br>
-                <label>Dietary Restrictions <br>
-                    <select name="restrictions">
-                        <option>None</option>
-                        <option>Vegan</option>
-                        <option>Vegetarian</option>
-                        <option>Gluten Free</option>
-                        <option>Other</option>
-                    </select>
-                </label><br>
+                <div class="meal-diet" style="border-top: 2px solid gray; width: 60%; padding-top: 15px;">
+
+                    <label>Choose Meal Type <br>
+                        <select name="mealType" style="width: 100px;">
+                            <option>None</option>
+                            <option>Breakfast</option>
+                            <option>Lunch</option>
+                            <option>Dinner</option>
+                            <option>Dessert</option>
+                            <option>Snack</option>
+                            <option>Other</option>
+                        </select>
+                    </label> <br>
+                    <label>Dietary Restrictions <br>
+                        <select name="restrictions" style="width: 100px;">
+                            <option>None</option>
+                            <option>Vegan</option>
+                            <option>Vegetarian</option>
+                            <option>Gluten Free</option>
+                            <option>Other</option>
+                        </select>
+                    </label><br>
+                </div>
             </div>
 
 
             <div class="right-new">
-                <label class="new-labels">Description <br>
-                    <textarea name="description" cols="30" rows="5"></textarea>
+                <label class="new-labels" style="margin-bottom: 50px;">Description <br>
+                    <textarea style="margin-bottom: 30px; margin-top: 15px;" name="description" cols="45" rows="5"></textarea>
                 </label><br>
                 <label class="new-labels">Ingredients <br>
                     <ul id="inputList" style="padding: 0;">
