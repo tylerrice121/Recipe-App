@@ -4,126 +4,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>New Recipe</title>
 </head>
 <body>
-        <header>
-            <h1>New Recipe</h1>
-            <nav>
-                <a href="/logout">Logout</a>
-                <a href="/dashboard">Dashboard</a>
-            </nav>
-        </header>
+    <header class="header dash">
+        <div class="hat-div">
+            <img class="chef-hat" src="images/clipart16385.png" style="width: 55px;">
 
-        <form action="/new" method="POST" enctype="multipart/form-data">
-            <h4>Upload Image</h4><br>
-            <%if (error) {%>
-                <p><%=error%></p>
-            <%}%>
-            <input type="file" name="imageURL">
-            <input type="hidden" name="user" value="<%=user%>">
-            <p>Courtesy of:</p>
-            Link <input type="text" name="extLink">
-            Company Name <input type="text" name="linkName">
-            <label>Recipe Name:
-                <input type="text" name="title">
-            </label><br>
-            <label>Choose Meal Type
-                <select name="mealType">
-                    <option>None</option>
-                    <option>Breakfast</option>
-                    <option>Lunch</option>
-                    <option>Dinner</option>
-                    <option>Dessert</option>
-                    <option>Snack</option>
-                    <option>Other</option>
-                </select>
-            </label>
-            <label>Dietary Restrictions
-                <select name="restrictions">
-                    <option>None</option>
-                    <option>Vegan</option>
-                    <option>Vegetarian</option>
-                    <option>Gluten Free</option>
-                    <option>Other</option>
-                </select>
-            </label><br>
-            <label>Description:
-                <textarea name="description" id="" cols="30" rows="5"></textarea>
-            </label><br>
-            <label>Ingredients:
-                <ul id="inputList">
-                    <textarea name="ingredients" cols="30" rows="3"></textarea>
-                </ul>
-                <script>
-                    function addToList() {
-                        // grab and create elements
-                        let ul = document.getElementById('inputList');
-                        let newDiv = document.createElement('div');
-                        let newItem = document.createElement('textarea');
-                        let newButton = document.createElement('button')
-                        // append elements
-                        ul.appendChild(newDiv)
-                        newDiv.appendChild(newItem);
-                        newDiv.appendChild(newButton)
-                        // set attributes
-                        newButton.setAttribute('type', 'button');                       
-                        newButton.innerHTML = 'Remove';
-                        newButton.setAttribute('id', 'remove');
-                        newItem.setAttribute('id', 'removeMe');
-                        newItem.setAttribute('cols', '30');
-                        newItem.setAttribute('rows', '3');
-                        newItem.setAttribute('name', 'ingredients');
-                    }
-                    </script>
-                    <script>
-                        $(document).ready(function(){
-                            $(document).on('click', '#remove',function() {
-                                $('#remove').closest('div').remove();
-                            });
-                        });
-                    </script>
-                <button type="button" onclick="addToList()">Add Ingredients</button>
-            </label><br>
-            <label>Steps:
-                <ul id="stepList">
-                    <textarea name="steps" cols="30" rows="5"></textarea>
-                </ul>
-                <script>
-                    function addStep() {
-                        //create and grab elements
-                        let ul = document.getElementById('stepList');
-                        let newDiv = document.createElement('div');
-                        let newStep = document.createElement('textarea');
-                        let button = document.createElement('button')
-                        //append elements
-                        ul.appendChild(newDiv);
-                        newDiv.appendChild(newStep);
-                        newDiv.appendChild(button);
-
-                        //set attributes
-                        button.setAttribute('type', 'button');                       
-                        button.innerHTML = 'Remove';
-                        button.setAttribute('id', 'remove');
-                        newStep.setAttribute('cols', '30');
-                        newStep.setAttribute('rows', '5');
-                        newStep.setAttribute('name', 'steps');
-                    
-                    }
-
+        </div>
+        <div class="title">
+            <h1>HomeCooked</h1>
+        </div>
+        <nav>
+            <a href="/dashboard" style="border-right: 2px solid black; width: 130px; color: black;">Dashboard</a>
+            <a href="/myrecipes" style="border-right: 2px solid black; width: 130px; color: black;">MyRecipes</a>
+            <a href="/logout" style="width: 97px; color: black; margin-left: 10px;">Logout</a>
+        </nav>
+    </header>
+    <form action="/new" method="POST" enctype="multipart/form-data">
+        <h4>Upload Image</h4><br>
+        <%if (error) {%>
+            <p><%=error%></p>
+        <%}%>
+        <input type="file" name="imageURL">
+        <input type="hidden" name="user" value="<%=user%>">
+        <p>Courtesy of:</p>
+        Link <input type="text" name="extLink">
+        Company Name <input type="text" name="linkName">
+        <label>Recipe Name:
+            <input type="text" name="title">
+        </label><br>
+        <label>Choose Meal Type
+            <select name="mealType">
+                <option>None</option>
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option>Dinner</option>
+                <option>Dessert</option>
+                <option>Snack</option>
+                <option>Other</option>
+            </select>
+        </label>
+        <label>Dietary Restrictions
+            <select name="restrictions">
+                <option>None</option>
+                <option>Vegan</option>
+                <option>Vegetarian</option>
+                <option>Gluten Free</option>
+                <option>Other</option>
+            </select>
+        </label><br>
+        <label>Description:
+            <textarea name="description" id="" cols="30" rows="5"></textarea>
+        </label><br>
+        <label>Ingredients:
+            <ul id="inputList">
+                <textarea name="ingredients" cols="30" rows="3"></textarea>
+            </ul>
+            <script>
+                function addToList() {
+                    // grab and create elements
+                    let ul = document.getElementById('inputList');
+                    let newDiv = document.createElement('div');
+                    let newItem = document.createElement('textarea');
+                    let newButton = document.createElement('button')
+                    // append elements
+                    ul.appendChild(newDiv)
+                    newDiv.appendChild(newItem);
+                    newDiv.appendChild(newButton)
+                    // set attributes
+                    newButton.setAttribute('type', 'button');                       
+                    newButton.innerHTML = 'Remove';
+                    newButton.setAttribute('id', 'remove');
+                    newItem.setAttribute('id', 'removeMe');
+                    newItem.setAttribute('cols', '30');
+                    newItem.setAttribute('rows', '3');
+                    newItem.setAttribute('name', 'ingredients');
+                }
                 </script>
                 <script>
                     $(document).ready(function(){
                         $(document).on('click', '#remove',function() {
-                            $('#remove').closest('div').remove();
+                            $(this).closest('div').remove();
                         });
                     });
                 </script>
+            <button type="button" onclick="addToList()">Add Ingredients</button>
+        </label><br>
+        <label>Steps:
+            <ul id="stepList">
+                <textarea name="steps" cols="30" rows="5"></textarea>
+            </ul>
+            <script>
+                function addStep() {
+                    //create and grab elements
+                    let ul = document.getElementById('stepList');
+                    let newDiv = document.createElement('div');
+                    let newStep = document.createElement('textarea');
+                    let button = document.createElement('button')
+                    //append elements
+                    ul.appendChild(newDiv);
+                    newDiv.appendChild(newStep);
+                    newDiv.appendChild(button);
 
+                    //set attributes
+                    button.setAttribute('type', 'button');                       
+                    button.innerHTML = 'Remove';
+                    button.setAttribute('id', 'remove');
+                    newStep.setAttribute('cols', '30');
+                    newStep.setAttribute('rows', '5');
+                    newStep.setAttribute('name', 'steps');
+                
+                }
 
-
-                <button type="button" onclick="addStep()">Add Step</button>
+            </script>
+            <script>
+                $(document).ready(function(){
+                    $(document).on('click', '#remove',function() {
+                        $(this).closest('div').remove();
+                    });
+                });
+            </script>
+            <button type="button" onclick="addStep()">Add Step</button>
             </label><br>
             <label>Prep Time
                 <input type="text" name="prepTime">
@@ -133,8 +140,5 @@
             </label>
             <input type="submit" value="Add Recipe">
         </form>
-        <ul id="inputList">
-      
-        </ul>
 </body>
 </html>

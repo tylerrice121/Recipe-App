@@ -8,6 +8,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
     <title>New Recipe</title>
 </head>
 
@@ -51,7 +55,7 @@
                 Company Name <input type="text" name="linkName" value="<%=r.linkName%>"><br>
                 <img src="<%= r.imageURL %>" style="width: 350px;"><br>
                 <a href="/recipe/<%=r._id%>/image">Update Image</a>
-                
+
                 <h4>DESCRIPTION</h4>
                 <textarea name="description" id="" cols="30" rows="5"><%= r.description %></textarea>
                 <p>PREPTIME
@@ -64,14 +68,14 @@
             <div class="right-side">
                 <h3>INGREDIENTS</h3>
                 <ul id="inputList">
-                <%r.ingredients.forEach((ingredient, i) => {%>
+                    <%r.ingredients.forEach((ingredient, i) => {%>
                     <div class="<%=i%>">
-                    <%if(i == 0){%>
+                        <%if(i == 0){%>
                         <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
-                    <%} else {%>
+                        <%} else {%>
                         <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
                         <button type="button" id="remove">Remove</button>
-                    <%}%>
+                        <%}%>
                     </div>              
                 <%})%>
                 </ul>
@@ -87,7 +91,7 @@
                         newDiv.appendChild(newItem);
                         newDiv.appendChild(newButton)
                         // set attributes
-                        newButton.setAttribute('type', 'button');                       
+                        newButton.setAttribute('type', 'button');
                         newButton.innerHTML = 'Remove';
                         newButton.setAttribute('id', 'remove');
                         newItem.setAttribute('id', 'removeMe');
@@ -95,7 +99,7 @@
                         newItem.setAttribute('rows', '3');
                         newItem.setAttribute('name', 'ingredients');
                     }
-                    </script>
+                </script>
                 <script>
                     $(document).ready(function () {
                         $(document).on('click', '#remove', function () {
@@ -104,16 +108,16 @@
                     });
                 </script>
                 <button type="button" onclick="addToList()">Add Ingredient</button>
-        
+
                 <h3>STEPS</h3>
                 <ul>
-                <%r.steps.forEach((step, i) => {%>
+                    <%r.steps.forEach((step, i) => {%>
                     <div class="<%=i%>" id="newStep">
                         <%if(i == 0){%>
-                            <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
+                        <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
                         <%} else {%>
-                            <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
-                            <button type="button" id="remove">Remove</button>
+                        <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
+                        <button type="button" id="remove">Remove</button>
                         <%}%>
                     </div>
                 <%})%>
@@ -130,7 +134,7 @@
                         newDiv.appendChild(newItem);
                         newDiv.appendChild(newButton)
                         // set attributes
-                        newButton.setAttribute('type', 'button');                       
+                        newButton.setAttribute('type', 'button');
                         newButton.innerHTML = 'Remove';
                         newButton.setAttribute('id', 'remove');
                         newItem.setAttribute('id', 'removeMe');
@@ -138,15 +142,15 @@
                         newItem.setAttribute('rows', '3');
                         newItem.setAttribute('name', 'steps');
                     }
-                    </script>
-                    <script>
-                        $(document).ready(function () {
-                            $(document).on('click', '#remove', function () {
-                                $(this).closest('div').remove();
-                            });
+                </script>
+                <script>
+                    $(document).ready(function () {
+                        $(document).on('click', '#remove', function () {
+                            $(this).closest('div').remove();
                         });
-                        </script>
-                
+                    });
+                </script>
+
                 <button type="button" onclick="addStep()">Add Step</button>
             </div>
             <input type="submit" value="Save Changes">
