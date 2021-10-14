@@ -24,44 +24,56 @@
             <a href="/logout" style="width: 100px; color: black; margin-left: 10px;">Logout</a>
         </nav>
     </header>
-        <div class="container">
-            <div class="left-side">
-                <h1><%= r.title %></h1>
-                <img src="<%= r.imageURL%>" style="width: 350px;"><br>
+        <div class="container-show">
+            <div class="left-side-show">
+                <div class="img-div">
+                    <img src="<%= r.imageURL%>" style="width: 400px;" id="show-img"><br>
+                </div>
                 <%if (user == r.user) {%>
-                    <a href="/recipe/<%=r._id%>/image">Update Image</a>
+                    <a href="/recipe/<%=r._id%>/image" style="font-size: smaller;">Update Image</a>
                 <%}%>
-                <%console.log(r.extLink == "not empty")%>
                 <%if (r.extLink != "") {%>
                     <p>
-                        Courtesy of:  
+                        Recipe from:  
                         <a href="<%=r.extLink%>"> <%=r.linkName || r.extLink%></a>
                     </p>              
                 <%}%>
-                <p><%= r.description %></p>
-                    <p>Prep time: <%= r.prepTime %> min</p>
-                    <p>Cook time:  <%= r.cookTime %> min</p>
+                    <p style="color: gray;">Prep time: <%= r.prepTime %> min</p>
+                    <p style="color: gray;">Cook time:  <%= r.cookTime %> min</p>
+                    
             </div>
-            <div class="right-side">
-                <h3>INGREDIENTS</h3>
-                <ul>
-                    <%for(let i = 0; i < r.ingredients.length; i++) {%>
-                        <li><%=r.ingredients[i]%></li>
+            
+                <div class="right-side-show">
+                    <h2><%= r.title %></h2>
+                    <p id="description" style="line-height: 25px;"><%= r.description %></p>
+                    <div class="ingredients-div">
+                        <h3>INGREDIENTS</h3>
+                        <ul id="ingredient-list">
+                            <%for(let i = 0; i < r.ingredients.length; i++) {%>
+                                <li><%=r.ingredients[i]%></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                    <div class="steps-div">
+                        <h3>STEPS</h3>
+                        <ul id="steps-list">
+                            <%for(let i = 0; i < r.steps.length; i++) {%>
+                                <li style="margin-bottom: 10px;"><%=r.steps[i]%></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                <div class="edit-div">
+                    <%if (user == r.user) {%>
+                    <form action="/recipe/<%=r._id%>/edit">
+                        <input type="submit" value="Edit" class="edit-delete" style="margin-right: 20px; color: gray; font-size: small;">
+                    </form>
+                    <form action="/recipe/<%=r._id%>?_method=DELETE" method="POST">
+                        <input type="submit"value="Delete" class="edit-delete" style="color: gray; font-size: small;">
+                    </form>
                     <%}%>
-                </ul>
-                <h3>STEPS</h3>
-                <ul>
-                    <%for(let i = 0; i < r.steps.length; i++) {%>
-                        <li><%=r.steps[i]%></li>
-                    <%}%>
-                </ul>
+
+                </div>
             </div>
-            <%if (user == r.user) {%>
-            <a href="/recipe/<%=r._id%>/edit">EDIT RECIPE</a>
-            <form action="/recipe/<%=r._id%>?_method=DELETE" method="POST">
-                <input type="submit"value="DELETE RECIPE">
-            </form>
-            <%}%>
         </div>
         
 </body>

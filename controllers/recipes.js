@@ -74,7 +74,6 @@ recipeRouter.get('/dashboard', isAuthenticated, (req, res) => {
 //NEW
 recipeRouter.get('/new', isAuthenticated, (req, res) => {
     User.find(req.session.user, (err) => {
-        console.log(req.session)
         res.render('new.ejs', {
             user: req.session.user,
         });

@@ -149,7 +149,7 @@ a {
     width: 350px;
     box-shadow: 2px 2px 3px rgb(179, 179, 179);
 }
-
+/* ==================================================DASH MEDIA */
 @media only screen and (max-width: 1200px) {
     nav {
         display: flex;
@@ -260,7 +260,7 @@ a {
 
 }
 
-/* SHOW */
+/* ==================================================SHOW */
 
 header.show {
     display: flex;
@@ -285,13 +285,70 @@ header.show h1 {
     margin-left: 150px;
 }
 
+
+
+.container-show {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 35px;
+    margin-left: 25px;
+    margin-right: 25px;
+    height: 100vh;
+}
+.left-side-show{
+    /* border: 1px solid black; */
+    margin-top: 0px;
+    padding-top: 0;
+    width: 25%;
+}
+.right-side-show{
+    /* border: 1px solid black; */
+    padding-top: 10px;
+    margin-left: 100px;
+    width: 50%;
+}
+#show-img{
+    box-shadow: 2px 2px 3px rgb(179 179 179);
+}
+.img-div {
+    margin-top: 30px;
+}
+.edit-delete {
+    background-color: transparent;
+    border-color: #DEB886;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #DEB886;
+    color: black;
+    width: 75px;
+    height: 40px;
+    font-size: medium;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+.edit-div{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+#ingredient-list{
+    line-height: 25px;
+}
+#steps-list{
+    line-height: 22px;
+}
+/* ==================================================SHOW MEDIA */
 @media only screen and (max-width: 1200px) {
 
 
     header.show {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         margin-top: 0;
         justify-content: center;
         align-items: center;
@@ -314,7 +371,7 @@ header.show h1 {
     }
 }
 
-/* HOME */
+/* ==================================================HOME*/
 
 
 .container-home {
@@ -404,7 +461,7 @@ body {
     margin-top: 0;
 
 }
-
+/* ==================================================HOME MEDIA */
 @media only screen and (max-width: 600px) {
     .explainer{
         color: white;
@@ -451,7 +508,7 @@ body {
     }
 }
 
-/* Login */
+/* ==================================================LOGIN */
 
 .text-line:-webkit-autofill,
 .text-line:-webkit-autofill:hover, 
@@ -533,7 +590,7 @@ body {
 .username {
     margin-bottom: 20px;
 }
-
+/* ==================================================LOGIN MEDIA */
 @media only screen and (max-width: 600px) {
     .login-btn{
         background-color: transparent;
