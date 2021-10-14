@@ -300,13 +300,11 @@ header.show h1 {
     height: 100vh;
 }
 .left-side-show{
-    /* border: 1px solid black; */
     margin-top: 0px;
     padding-top: 0;
     width: 25%;
 }
 .right-side-show{
-    /* border: 1px solid black; */
     padding-top: 10px;
     margin-left: 100px;
     width: 50%;
@@ -400,13 +398,11 @@ header.show h1 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* border: 1px solid black; */
         margin-top: 0px;
         padding-top: 0;
         width: 100%;
     }
     .right-side-show{
-        /* border: 1px solid black; */
         padding-top: 0;
         margin-left: 0;
         width: 100%;
@@ -742,7 +738,6 @@ header.new h1 {
 .container-new-form{
     display: flex;
     justify-content: flex-end;
-    /* border: 2px solid black; */
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -751,12 +746,10 @@ header.new h1 {
 
 }
 .left-new{
-    /* border: 2px solid black; */
     width: 30%;
     line-height: 30px;
 }
 .right-new{
-    /* border: 2px solid black; */
     padding-top: 20px;
     width: 50%;
 }
@@ -773,7 +766,7 @@ header.new h1 {
     height: 40px;
     font-size: small;
     font-weight: 500;
-    font-family: 'Montserrat', sans-serif;;
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 50px;
 }
 textarea {
@@ -898,7 +891,7 @@ textarea {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    /* border: 2px solid black; */
+
     margin-left: 40px;
     flex-wrap: wrap;
     width: 100%;
@@ -907,19 +900,25 @@ textarea {
 
 }
 .left-edit{
-    /* border: 2px solid black; */
+
     width: 400px;
     line-height: 30px;
 }
 .right-edit{
-    /* border: 2px solid black; */
+
     padding-top: 20px;
     width: 575px;
 }
 .right-steps{
-    /* border: 2px solid black; */
+
     padding-top: 20px;
     width: 575px;
+}
+textarea {
+    font-family:'Montserrat', sans-serif;
+}
+input {
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -964,7 +963,6 @@ textarea {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 2px solid black; */
     margin-left: 0;
     width: 100%;
     margin-top: 30px;
