@@ -27,7 +27,7 @@
         <div class="container-show">
             <div class="left-side-show">
                 <div class="img-div">
-                    <img src="<%= r.imageURL%>" style="width: 400px;" id="show-img"><br>
+                    <img src="<%= r.imageURL%>"id="show-img"><br>
                 </div>
                 <%if (user == r.user) {%>
                     <a href="/recipe/<%=r._id%>/image" style="font-size: smaller;">Update Image</a>

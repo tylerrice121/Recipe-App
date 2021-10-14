@@ -168,19 +168,6 @@ a {
         margin-bottom: 10px;
     }
 
-    .hat-div {
-        display: none;
-        width: 0;
-    }
-
-    .title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 0px;
-        margin-right: 20px;
-    }
-
     header.dash {
         display: flex;
         flex-direction: column;
@@ -196,6 +183,19 @@ a {
         margin-left: 0;
         box-shadow: 2px 2px 3px rgb(179, 179, 179);
     }
+    .hat-div {
+        display: none;
+        width: 0;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 0px;
+        margin-right: 20px;
+    }
+
 
 
     .filters {
@@ -311,6 +311,7 @@ header.show h1 {
 }
 #show-img{
     box-shadow: 2px 2px 3px rgb(179 179 179);
+    width: 400px;
 }
 .img-div {
     margin-top: 30px;
@@ -341,6 +342,18 @@ header.show h1 {
 #steps-list{
     line-height: 22px;
 }
+
+@media only screen and (max-width: 1300px) {
+    .right-side-show{
+        /* border: 1px solid black; */
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 100px;
+        width: 50%;
+    }
+
+}
 /* ==================================================SHOW MEDIA */
 @media only screen and (max-width: 1200px) {
 
@@ -369,7 +382,70 @@ header.show h1 {
         line-height: 10px;
         margin-bottom: 10px;
     }
+    .container-show {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 35px;
+        margin-left: 25px;
+        margin-right: 25px;
+        height: 100%;
+    }
+    .left-side-show{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid black; */
+        margin-top: 0px;
+        padding-top: 0;
+        width: 100%;
+    }
+    .right-side-show{
+        /* border: 1px solid black; */
+        padding-top: 0;
+        margin-left: 0;
+        width: 100%;
+    }
+    #show-img{
+        box-shadow: 2px 2px 3px rgb(179 179 179);
+        width: 300px;
+    }
+    .img-div {
+        margin-top: 30px;
+    }
+    .edit-delete {
+        background-color: transparent;
+        border-color: #DEB886;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #DEB886;
+        color: black;
+        width: 75px;
+        height: 40px;
+        font-size: medium;
+        font-weight: 500;
+        margin-bottom: 50px;
+    }
+    .edit-div{
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 20px;
+    }
+    
+    #ingredient-list{
+        line-height: 25px;
+    }
+    #steps-list{
+        line-height: 22px;
+    }
+
+    
 }
+
 
 /* ==================================================HOME*/
 
@@ -401,7 +477,7 @@ header.show h1 {
     line-height: 10px;
     color: white;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 0px;
     margin-bottom: 30px;
     margin-right: 50px;
 }
@@ -447,6 +523,8 @@ header.show h1 {
 
 
 
+
+
 html {
     padding: 0;
     font-family: 'Montserrat', sans-serif;
@@ -476,7 +554,7 @@ body {
         line-height: 10px;
         color: white;
         text-align: center;
-        margin-top: 25px;
+        margin-top: 0;
         margin-bottom: 30px;
         margin-right: 50px;
         margin-left: 30px;
@@ -623,4 +701,58 @@ body {
         width: 350px;
         border-radius: 5px
     }
+}
+
+
+/* ==================================================HOME*/
+
+header.edit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 15px;
+    background-color: burlywood;
+    margin-left: 0;
+    box-shadow: 2px 2px 3px rgb(179, 179, 179);
+}
+
+header.edit h1 {
+    font-family: 'Birthstone', cursive;
+    font-size: 60px;
+    line-height: 10px;
+    margin-left: 150px;
+}
+
+@media only screen and (max-width: 1200px) {
+
+header.edit h1 {
+    font-family: 'Birthstone', cursive;
+    font-size: 60px;
+    margin-left: 10px;
+    margin-right: 15px;
+    line-height: 10px;
+    margin-bottom: 10px;
+}
+
+header.edit {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    padding-right: 40px;
+    padding-left: 30px;
+    padding-top: 0;
+    background-color: burlywood;
+    margin-left: 0;
+    box-shadow: 2px 2px 3px rgb(179, 179, 179);
+}
 }

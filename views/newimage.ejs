@@ -23,7 +23,7 @@
     <div class="container">
         <form action="/recipe/<%=r._id%>/image?_method=PUT" method="POST" enctype="multipart/form-data">
                 <h1>Update Image</h1>
-                <img src="/<%= r.img %>" style="width: 350px;"><br>
+                <img src="<%= r.imageURL %>" style="width: 350px;"><br>
                 <input type="file" name="imageURL">
             <input type="submit" value="Save Changes">
         </form>
