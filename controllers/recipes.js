@@ -121,7 +121,7 @@ recipeRouter.put('/recipe/:id/image', (req, res) => {
 //CREATE
 recipeRouter.post('/new', (req, res) => {
     if(!req.files) {
-        res.render('new.ejs', {user: req.session.user, error: 'please upload a photo'})
+        res.render('new.ejs', {user: req.session.user, error: 'Please upload a photo'})
 
     } else {
 
