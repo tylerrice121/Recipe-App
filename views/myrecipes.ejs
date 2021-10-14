@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+
+<body>
+    <header class="header dash">
+        <div class="hat-div">
+            <img class="chef-hat" src="images/clipart16385.png" style="width: 55px;">
+
+        </div>
+        <div class="title">
+            <h1>HomeCooked</h1>
+        </div>
+        <nav>
+            <a href="/dashboard" style="border-right: 2px solid black; width: 150px; color: black;">Home</a>
+            <a href="/new" style="border-right: 2px solid black; width: 92px; color: black;">Add</a>
+            <a href="/logout" style="width: 100px; color: black; margin-left: 10px;">Logout</a>
+        </nav>
+    </header>
+    <div class="topLine">
+
+    </div>
+    <div class="container">
+        
+        <div class="recipes">
+            <%for (let i = 0; i < recipes.length; i++) {%>
+            <%if(user.username == recipes[i].user.username) {%>
+                <%if(i % 2 == 0){%>
+                <div id="id<%=i%>" class="recipe-block">
+                    <div class="imgDiv">
+                        <img src="<%=recipes[i].imageURL%>" class="dashImg">
+                    </div>
+                    <div class="textDiv">
+                        <a href="/recipe/<%=recipes[i]._id%>">
+                            <h2><%=recipes[i].title%></h2>
+                        </a>
+                        <%if (recipes[i].extLink != "") {%>
+                        <p>
+                            Courtesy of:
+                            <a href="<%=recipes[i].extLink%>"> <%=recipes[i].linkName || recipes[i].extLink%></a>
+                        </p>
+                        <%}%>    
+                            <p><%=recipes[i].description%></p>
+                        <p>Uploaded by <%=recipes[i].user.username%></p>
+                        <a class="view-recipe-button" href="/recipe/<%=recipes[i]._id%>">View Recipe</a>
+                    </div>
+                </div>
+                <%} else {%>
+                <div id="id<%=i%>" class="recipe-block">
+                    <div class="textDiv">
+                        <a href="/recipe/<%=recipes[i]._id%>">
+                            <h2><%=recipes[i].title%></h2>
+                        </a>
+                        <%if (recipes[i].extLink != "") {%>
+                        <p>
+                            Courtesy of:
+                            <a href="<%=recipes[i].extLink%>"> <%=recipes[i].linkName || recipes[i].extLink%></a>
+                        </p>
+                        <%}%>    
+                                <p><%=recipes[i].description%></p>
+                        <p>Uploaded by <%=recipes[i].user.username%></p>
+                        <a class="view-recipe-button" href="/recipe/<%=recipes[i]._id%>">View Recipe</a>
+                    </div>
+                    <div class="imgDiv">
+                        <img src="<%=recipes[i].imageURL%>" class="dashImg">
+                    </div>
+                </div>
+                <%}%>
+                <%} else {%>
+                    <h1></h1>
+                <%}%>
+                <%}%>
+                <%for (let i = 0; i < 1; i++) {%>
+                    <%if(user.username != recipes[i].user.username) {%>
+                        <a href="/new">
+                            <h1>Click here to add a recipe</h1>
+                        </a>
+
+                <%}%>
+                <%}%>
+
+
+            </div>
+        </div>
+
+</body>
+
+</html>

@@ -69,6 +69,14 @@ recipeRouter.get('/dashboard', isAuthenticated, (req, res) => {
     });
 });
 
+recipeRouter.get('/myrecipes', isAuthenticated, (req, res) => {
+    User.findById(req.session.user, (err, user) => {
+        Recipe.find({}).populate('user').exec((err, recipes) =>{
+            res.render('myrecipes.ejs', { user, recipes });
+        });
+    });
+});
+
 
 //------------------------------------
 //NEW
