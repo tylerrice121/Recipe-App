@@ -18,6 +18,9 @@
 
         <form action="/new" method="POST" enctype="multipart/form-data">
             <h4>Upload Image</h4><br>
+            <%if (error) {%>
+                <p><%=error%></p>
+            <%}%>
             <input type="file" name="imageURL">
             <input type="hidden" name="user" value="<%=user%>">
             <p>Courtesy of:</p>

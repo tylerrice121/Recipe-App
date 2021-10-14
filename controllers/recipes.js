@@ -74,8 +74,10 @@ recipeRouter.get('/dashboard', isAuthenticated, (req, res) => {
 //NEW
 recipeRouter.get('/new', isAuthenticated, (req, res) => {
     User.find(req.session.user, (err) => {
+
         res.render('new.ejs', {
             user: req.session.user,
+            error: '',
         });
     });
 });
@@ -118,17 +120,42 @@ recipeRouter.put('/recipe/:id/image', (req, res) => {
 //------------------------------------
 //CREATE
 recipeRouter.post('/new', (req, res) => {
-    const photo = req.files.imageURL;
-    photo.mv(`./uploads/${photo.name}`)
-    cloudinary.uploader.upload(`./uploads/${photo.name}`).then(result => {
-        req.body.imageURL = result.secure_url;
-        Recipe.create(req.body, (err, newRecipe) => {
-            res.redirect('/dashboard')
-    
-        });
+    if(!req.files) {
+        res.render('new.ejs', {user: req.session.user, error: 'please upload a photo'})
 
-    })
+    } else {
+
+        const photo = req.files.imageURL;
+        photo.mv(`./uploads/${photo.name}`)
+        cloudinary.uploader.upload(`./uploads/${photo.name}`).then(result => {
+            req.body.imageURL = result.secure_url;
+            Recipe.create(req.body, (err, newRecipe) => {
+    
+    
+                    res.redirect('/dashboard')
+                       
+            });
+        })
+    }
+
 });
+// usersRouter.post('/login', (req, res) => {
+//     User.findOne({ username: req.body.username }, (err, foundUser) => {
+
+//         if (!foundUser) {
+//             return res.render('login.ejs', {error: 'Could not find username or password'})
+//         }
+
+//         const isMatched = bcrypt.compareSync(req.body.password, foundUser.password);
+
+//         if(!isMatched) {
+//             return res.render('login.ejs', {error: 'Could not find username or password'})
+//         }
+
+//         req.session.user = foundUser._id
+//         res.redirect('/dashboard')
+//     });
+// });
 
 //------------------------------------
 //EDIT

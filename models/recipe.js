@@ -7,12 +7,11 @@ const Schema = mongoose.Schema;
 //------------------------------------
 
 const recipeSchema = Schema({
-    title: String,
+    title: {type: String, required: true},
     description: String,
     extLink: String,
     linkName: String,
-    imageURL: {type: String, default:'/images/Brie-and-Cheddar-Apple-Beer-Soup-1.jpeg'},
-    img: String,
+    imageURL: {type: String, default:'/images/Brie-and-Cheddar-Apple-Beer-Soup-1.jpeg', required: true},
     ingredients: Array,
     steps: Array,
     restrictions: String,
