@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intro To Auth</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    <title>Sign Up</title>
 </head>
-<body>
-        <h1>Signup</h1>
-        <p>Please Enter A Username and Password to Join</p>
-        <form action="/signup" method="POST">
-            <label>Email:
-                <input type="text" name="email">
-            </label><br>
-            <label>Username:
-                <input type="text" name="username">
-            </label><br>
-            <label>Password:
-                <input type="password" name="password">
-            </label><br>
-            <input type="submit" value="Sign Up">
-        </form>
+<body>  
+        <div class="container-home">
+            <div class="main-home">
+                <div class="signup-info">
+                    <div class="login-title">
+                        <h1 style="color: white;" id="signup-title">Sign Up</h1>
+                    </div>
+                    <form action="/signup" method="POST" class="signup-form">
+                            <label style="color: gray;" class="username">Email <br>
+                                <input type="text" name="email" placeholder="Type your email" class="text-line">
+                            </label><br>
+                            <label style="color: gray;" class="username">Username <br>
+                                <input type="text" name="username" placeholder="Type your username" class="text-line">
+                            </label><br>
+                            <label style="color: gray;" class="pw">Password <br>
+                                <input type="password" name="password" placeholder="Type your password" class="text-line">
+                            </label><br>
+                            <input type="submit" value="Sign Up" class="login-btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+
 </body>
 </html>

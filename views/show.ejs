@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
     <title>New Recipe</title>
 </head>
 <body>
-        <header>
-            <nav>
-                <a href="/new">add recipe</a>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/logout">Logout</a>
-            </nav>
-        </header>
+    <header class="header show">
+        <div class="hat-div">
+            <img class="chef-hat" src="/images/clipart16385.png" style="width: 55px;">
+        </div>
+        <div class="title">
+            <h1>HomeCooked</h1>
+        </div>
+        <nav>
+            <a href="/dashboard" style="border-right: 2px solid black; width: 150px; color: black;">Dashboard</a>
+            <a href="/new" style="border-right: 2px solid black; width: 92px; color: black;">Add</a>
+            <a href="/logout" style="width: 100px; color: black; margin-left: 10px;">Logout</a>
+        </nav>
+    </header>
         <div class="container">
             <div class="left-side">
                 <h1><%= r.title %></h1>
@@ -53,5 +63,6 @@
             </form>
             <%}%>
         </div>
+        
 </body>
 </html>

@@ -1,4 +1,4 @@
-header {
+header.dash {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -10,16 +10,15 @@ header {
     padding-left: 30px;
     padding-top: 15px;
     background-color: burlywood;
-    /* background: linear-gradient(90deg, rgba(241,183,118,1) 0%, rgba(226,191,152,0.8752886836027713) 35%); */
-
     margin-left: 0;
     box-shadow: 2px 2px 3px rgb(179, 179, 179);
 }
 
-header h1 {
+header.dash h1 {
     font-family: 'Birthstone', cursive;
     font-size: 60px;
     line-height: 10px;
+    margin-left: 150px;
 }
 
 .filter {
@@ -39,7 +38,7 @@ header h1 {
     align-items: center;
     justify-content: center;
     width: 300px;
-    margin-left: 50px;
+    margin-left: 37px;
 
 }
 
@@ -157,13 +156,14 @@ a {
         text-align: center;
         align-items: center;
         justify-content: center;
-
         text-decoration: none;
     }
 
-    header h1 {
+    header.dash h1 {
         font-family: 'Birthstone', cursive;
         font-size: 60px;
+        margin-left: 10px;
+        margin-right: 15px;
         line-height: 10px;
         margin-bottom: 10px;
     }
@@ -178,23 +178,25 @@ a {
         align-items: center;
         justify-content: center;
         width: 0px;
-        margin-left: 0;
+        margin-right: 20px;
     }
 
-    header {
+    header.dash {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         margin-top: 0;
         justify-content: center;
         align-items: center;
         padding: 15px;
-        padding-right: 30px;
+        padding-right: 40px;
         padding-left: 30px;
         padding-top: 0;
         background-color: burlywood;
         margin-left: 0;
+        box-shadow: 2px 2px 3px rgb(179, 179, 179);
     }
+
 
     .filters {
         display: flex;
@@ -256,6 +258,60 @@ a {
     }
 
 
+}
+
+/* SHOW */
+
+header.show {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 15px;
+    background-color: burlywood;
+    margin-left: 0;
+    box-shadow: 2px 2px 3px rgb(179, 179, 179);
+}
+
+header.show h1 {
+    font-family: 'Birthstone', cursive;
+    font-size: 60px;
+    line-height: 10px;
+    margin-left: 150px;
+}
+
+@media only screen and (max-width: 1200px) {
+
+
+    header.show {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-top: 0;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        padding-right: 40px;
+        padding-left: 30px;
+        padding-top: 0;
+        background-color: burlywood;
+        margin-left: 0;
+        box-shadow: 2px 2px 3px rgb(179, 179, 179);
+    }
+    
+    header.show h1 {
+        font-family: 'Birthstone', cursive;
+        font-size: 60px;
+        margin-left: 10px;
+        margin-right: 15px;
+        line-height: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 /* HOME */
@@ -322,7 +378,7 @@ a {
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    width: 165%;
+    width: 250%;
     height: 45px;
     margin-top: 25px;
     border: 3px solid #DEB886;
@@ -454,6 +510,26 @@ body {
     justify-content: center;
     align-items: center;
 }
+.signup-form {
+    height: 500px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);;
+    height: 685px;
+    width: 600px;
+    border-radius: 5px
+}
 .username {
     margin-bottom: 20px;
 }
@@ -478,5 +554,16 @@ body {
     }
     #login-title{
         margin-top: 0;
+    }
+    .signup-info{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0,0,0,0.7);;
+        height: 620px;
+        width: 350px;
+        border-radius: 5px
     }
 }
