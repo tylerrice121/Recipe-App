@@ -15,7 +15,7 @@
 <body>
     <header class="header dash">
         <div class="hat-div">
-            <img class="chef-hat" src="images/clipart16385.png" style="width: 55px;">
+            <img class="chef-hat" src="../images/clipart16385.png" style="width: 55px;">
 
         </div>
         <div class="title">
@@ -28,13 +28,18 @@
         </nav>
     </header>
     <div class="topLine">
+        <div class="filters">
+            <a class="filter" href="/dashboard" style=" width: 100px;">All</a>
+            <a class="filter" href="/dashboard/dessert" style="width: 100px;"> Dessert</a>
+            <a class="filter" href="/dashboard/veggie" style="width: 125px;">Vegetarian</a>
+        </div>
 
     </div>
     <div class="container">
         
         <div class="recipes">
             <%for (let i = 0; i < recipes.length; i++) {%>
-            <%if(user.username == recipes[i].user.username) {%>
+            <%if(recipes[i].restrictions == 'Vegetarian') {%>
                 <%if(i % 2 == 0){%>
                 <div id="id<%=i%>" class="recipe-block">
                     <div class="imgDiv">
@@ -81,10 +86,10 @@
                 <%}%>
                 <%}%>
                 <%for (let i = 0; i < 1; i++) {%>
-                    <%if(user.username != recipes[i].user.username) {%>
-                        <a href="/new">
-                            <h1 style="text-align: center; margin-top: 100px;">Click here to add a recipe</h1>
-                        </a>
+                    <%if(recipes[i].restrictions == 'Vegetarian') {%>
+                        
+                            <h1 style="text-align: center; margin-top: 100px;">Looks like we're all out of veggie recipes!</h1>
+                        
 
                 <%}%>
                 <%}%>

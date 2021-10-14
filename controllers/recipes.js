@@ -77,6 +77,14 @@ recipeRouter.get('/myrecipes', isAuthenticated, (req, res) => {
     });
 });
 
+recipeRouter.get('/dashboard/veggie', isAuthenticated, (req, res) => {
+    User.findById(req.session.user, (err, user) => {
+        Recipe.find({}).populate('user').exec((err, recipes) =>{
+            res.render('veggie.ejs', { user, recipes });
+        });
+    });
+});
+
 
 //------------------------------------
 //NEW
