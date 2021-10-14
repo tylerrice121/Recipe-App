@@ -8,24 +8,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
     <title>New Recipe</title>
 </head>
 
 <body>
-    <header>
-        <h1>Edit Recipe</h1>
+    <header class="header show">
+        <div class="hat-div">
+            <img class="chef-hat" src="/images/clipart16385.png" style="width: 55px;">
+        </div>
+        <div class="title">
+            <h1>HomeCooked</h1>
+        </div>
         <nav>
-            <a href="/new">add recipe</a>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/logout">Logout</a>
+            <a href="/dashboard" style="border-right: 2px solid black; width: 150px; color: black;">Home</a>
+            <a href="/new" style="border-right: 2px solid black; width: 92px; color: black;">Add</a>
+            <a href="/logout" style="width: 100px; color: black; margin-left: 10px;">Logout</a>
         </nav>
     </header>
-    <div class="container">
-        <form action="/recipe/<%=r._id%>/image?_method=PUT" method="POST" enctype="multipart/form-data">
-                <h1>Update Image</h1>
-                <img src="<%= r.imageURL %>" style="width: 350px;"><br>
-                <input type="file" name="imageURL">
-            <input type="submit" value="Save Changes">
+    <div class="container-image">
+        <form action="/recipe/<%=r._id%>/image?_method=PUT" method="POST" enctype="multipart/form-data" class="image-form">
+                <img src="<%= r.imageURL %>"class="uploadimg-img"><br>
+                <label class="new-buttons uploadbtn" style="padding: 1px, 6px; margin-top: 10px; margin-bottom: 20px; height: 37px;"> Upload File
+
+                    <input type="file" name="imageURL" id="uploader">
+                </label>
+            <input type="submit" value="Save Changes" class="new-buttons">
         </form>
     </div>
 </body>

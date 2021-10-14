@@ -773,6 +773,7 @@ header.new h1 {
     height: 40px;
     font-size: small;
     font-weight: 500;
+    font-family: 'Montserrat', sans-serif;;
     margin-bottom: 50px;
 }
 textarea {
@@ -942,17 +943,51 @@ textarea {
 }
 .left-edit{
     /* border: 2px solid black; */
-    width: 400px;
+    width: 90%;
     line-height: 30px;
 }
 .right-edit{
     /* border: 2px solid black; */
     padding-top: 20px;
-    width: 575px;
+    width: 90%;
 }
 .right-steps{
     /* border: 2px solid black; */
     padding-top: 20px;
-    width: 575px;
+    width: 90%;
 }
+}
+
+/* ==================================================IMAGE*/
+.container-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+    margin-left: 0;
+    width: 100%;
+    margin-top: 30px;
+    padding-left: 0;
+
+}
+.image-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.uploadbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.uploadimg-img{
+    width: 450px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .uploadimg-img{
+        width: 300px;
+    }
 }
