@@ -39,7 +39,7 @@
         
         <div class="recipes">
             <%for (let i = 0; i < recipes.length; i++) {%>
-            <%if(recipes[i].restrictions == 'Vegetarian') {%>
+            <%if(recipes[i].mealType == 'Dessert') {%>
                 <%if(i % 2 == 0){%>
                 <div id="id<%=i%>" class="recipe-block">
                     <div class="imgDiv">
@@ -85,9 +85,6 @@
                     <h1></h1>
                 <%}%>
                 <%}%>
-                    
-
-                
 
 
             </div>
