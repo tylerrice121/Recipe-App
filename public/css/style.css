@@ -739,20 +739,22 @@ header.new h1 {
 }
 .container-new-form{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    margin-top: 50px;
+    padding-left: 50px;
 
 }
 .left-new{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 30%;
     line-height: 30px;
 }
 .right-new{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 50%;
 }
 #uploader {
@@ -769,6 +771,11 @@ header.new h1 {
     font-size: small;
     font-weight: 500;
     margin-bottom: 50px;
+}
+.newdiv-new{
+
+    margin: 0;
+    height: 85px;
 }
 
 /* ==================================================NEW MEDIA*/

@@ -81,12 +81,14 @@
 
 
             <div class="right-new">
-                <label>Description <br>
-                    <textarea name="description" id="" cols="30" rows="5"></textarea>
+                <label class="new-labels">Description <br>
+                    <textarea name="description" cols="30" rows="5"></textarea>
                 </label><br>
-                <label>Ingredients <br>
-                    <ul id="inputList">
-                        <textarea name="ingredients" cols="30" rows="3"></textarea>
+                <label class="new-labels">Ingredients <br>
+                    <ul id="inputList" style="padding: 0;">
+                        <div>
+                            <textarea name="ingredients" cols="45" rows="5"></textarea>
+                        </div>
                     </ul>
                     <script>
                         function addToList() {
@@ -99,6 +101,7 @@
                             ul.appendChild(newDiv)
                             newDiv.appendChild(newItem);
                             newDiv.appendChild(newButton)
+                            newDiv.setAttribute('class', 'newdiv-new')
                             // set attributes
                             newButton.setAttribute('type', 'button');                       
                             newButton.innerHTML = 'Remove';
@@ -106,8 +109,8 @@
                             newButton.setAttribute('class', 'new-buttons')
                             newButton.setAttribute('style', 'border: none')
                             newItem.setAttribute('id', 'removeMe');
-                            newItem.setAttribute('cols', '30');
-                            newItem.setAttribute('rows', '3');
+                            newItem.setAttribute('cols', '45');
+                            newItem.setAttribute('rows', '5');
                             newItem.setAttribute('name', 'ingredients');
                         }
                         </script>
@@ -118,11 +121,11 @@
                                 });
                             });
                         </script>
-                    <button type="button" onclick="addToList()" class="new-buttons">Add Ingredients</button>
+                    <button type="button" onclick="addToList()" class="new-buttons" style="border: none; height: 2px;">Add Ingredients</button>
                 </label><br>
-                <label>Steps
-                    <ul id="stepList">
-                        <textarea name="steps" cols="30" rows="5"></textarea>
+                <label class="new-labels">Steps
+                    <ul id="stepList" style="padding: 0;">
+                        <textarea name="steps" cols="45" rows="5"></textarea>
                     </ul>
                     <script>
                         function addStep() {
@@ -135,6 +138,7 @@
                             ul.appendChild(newDiv);
                             newDiv.appendChild(newStep);
                             newDiv.appendChild(button);
+                            newDiv.setAttribute('class', 'newdiv-new')
         
                             //set attributes
                             button.setAttribute('type', 'button');                       
@@ -142,7 +146,7 @@
                             button.setAttribute('id', 'remove');
                             button.setAttribute('class', 'new-buttons')
                             button.setAttribute('style', 'border: none')
-                            newStep.setAttribute('cols', '30');
+                            newStep.setAttribute('cols', '45');
                             newStep.setAttribute('rows', '5');
                             newStep.setAttribute('name', 'steps');
                         
@@ -156,10 +160,10 @@
                             });
                         });
                     </script>
-                    <button type="button" onclick="addStep()" class="new-buttons">Add Step</button>
+                    <button type="button" onclick="addStep()" class="new-buttons" style="border: none; height: 2px;">Add Step</button>
                     </label><br>
     
-                    <input type="submit" value="Add Recipe" class="new-buttons">
+                    <input type="submit" value="Submit" class="new-buttons">
             </div>
             </form>
     
