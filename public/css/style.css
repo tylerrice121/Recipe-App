@@ -152,9 +152,11 @@ a {
 /* ==================================================DASH MEDIA */
 @media only screen and (max-width: 1200px) {
     nav {
+        margin-top: 25px;
         display: flex;
         text-align: center;
         align-items: center;
+        font-size: small;
         justify-content: center;
         text-decoration: none;
     }
@@ -388,7 +390,7 @@ header.show h1 {
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        margin-top: 35px;
+        margin-top: 50px;
         margin-left: 25px;
         margin-right: 25px;
         height: 100%;
@@ -773,6 +775,12 @@ header.new h1 {
     font-weight: 500;
     margin-bottom: 50px;
 }
+textarea {
+    font-size: 15px;
+}
+input {
+    font-size: 16px;
+}
 .newdiv-new{
 
     margin: 0;
@@ -880,10 +888,71 @@ textarea {
     margin-top: 25px;
 }
 
-
-
-
-
 }
 
 
+/* ==================================================EDIT*/
+
+.container-edit-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* border: 2px solid black; */
+    margin-left: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 50px;
+    padding-left: 0;
+
+}
+.left-edit{
+    /* border: 2px solid black; */
+    width: 400px;
+    line-height: 30px;
+}
+.right-edit{
+    /* border: 2px solid black; */
+    padding-top: 20px;
+    width: 575px;
+}
+.right-steps{
+    /* border: 2px solid black; */
+    padding-top: 20px;
+    width: 575px;
+}
+
+
+
+/* ==================================================EDIT MEDIA*/
+
+@media only screen and (max-width: 1200px) {
+
+    
+.container-edit-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* border: 2px solid black; */
+    margin-left: 0;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 50px;
+    padding-left: 20px;
+
+}
+.left-edit{
+    /* border: 2px solid black; */
+    width: 400px;
+    line-height: 30px;
+}
+.right-edit{
+    /* border: 2px solid black; */
+    padding-top: 20px;
+    width: 575px;
+}
+.right-steps{
+    /* border: 2px solid black; */
+    padding-top: 20px;
+    width: 575px;
+}
+}

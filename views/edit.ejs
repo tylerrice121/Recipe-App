@@ -16,145 +16,176 @@
 </head>
 
 <body>
-    <header>
-        <h1>Edit Recipe</h1>
+    <header class="header show">
+        <div class="hat-div">
+            <img class="chef-hat" src="/images/clipart16385.png" style="width: 55px;">
+        </div>
+        <div class="title">
+            <h1>HomeCooked</h1>
+        </div>
         <nav>
-            <a href="/new">add recipe</a>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/logout">Logout</a>
+            <a href="/dashboard" style="border-right: 2px solid black; width: 150px; color: black;">Home</a>
+            <a href="/new" style="border-right: 2px solid black; width: 92px; color: black;">Add</a>
+            <a href="/logout" style="width: 100px; color: black; margin-left: 10px;">Logout</a>
         </nav>
     </header>
     <div class="container-edit">
-        <form action="/recipe/<%=r._id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="left-side">
-                <h1>
-                    <input type="text" name="title" value="<%=r.title%>" style="width: 500px;">
-                </h1>
-                <label>Choose Meal Type
-                    <select name="mealType">
-                        <option>None</option>
-                        <option>Breakfast</option>
-                        <option>Lunch</option>
-                        <option>Dinner</option>
-                        <option>Dessert</option>
-                        <option>Snack</option>
-                        <option>Other</option>
-                    </select>
-                </label>
-                <label>Dietary Restrictions
-                    <select name="restrictions">
-                        <option>None</option>
-                        <option>Vegan</option>
-                        <option>Vegetarian</option>
-                        <option>Gluten Free</option>
-                        <option>Other</option>
-                    </select>
-                </label>
-                <p>Courtesy of:</p>
-                Link <input type="text" name="extLink" value="<%=r.extLink%>"><br>
-                Company Name <input type="text" name="linkName" value="<%=r.linkName%>"><br>
-                <img src="<%= r.imageURL %>" style="width: 350px;"><br>
-                <a href="/recipe/<%=r._id%>/image">Update Image</a>
 
-                <h4>DESCRIPTION</h4>
-                <textarea name="description" id="" cols="30" rows="5"><%= r.description %></textarea>
-                <p>PREPTIME
-                    <input type="text" name="prepTime" value="<%=r.prepTime%>">
-                </p>
-                <p>COOKTIME
-                    <input type="text" name="cookTime" value="<%=r.cookTime%>">
-                </p>
-            </div>
-            <div class="right-side">
-                <h3>INGREDIENTS</h3>
-                <ul id="inputList">
-                    <%r.ingredients.forEach((ingredient, i) => {%>
-                    <div class="<%=i%>">
-                        <%if(i == 0){%>
-                        <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
-                        <%} else {%>
-                        <textarea name="ingredients" id="" cols="30" rows="4"><%= ingredient %></textarea>
-                        <button type="button" id="remove">Remove</button>
-                        <%}%>
-                    </div>              
-                <%})%>
-                </ul>
-                <script>
-                    function addToList() {
-                        // grab and create elements
-                        let ul = document.getElementById('inputList');
-                        let newDiv = document.createElement('div');
-                        let newItem = document.createElement('textarea');
-                        let newButton = document.createElement('button')
-                        // append elements
-                        ul.appendChild(newDiv)
-                        newDiv.appendChild(newItem);
-                        newDiv.appendChild(newButton)
-                        // set attributes
-                        newButton.setAttribute('type', 'button');
-                        newButton.innerHTML = 'Remove';
-                        newButton.setAttribute('id', 'remove');
-                        newItem.setAttribute('id', 'removeMe');
-                        newItem.setAttribute('cols', '30');
-                        newItem.setAttribute('rows', '3');
-                        newItem.setAttribute('name', 'ingredients');
-                    }
-                </script>
-                <script>
-                    $(document).ready(function () {
-                        $(document).on('click', '#remove', function () {
-                            $(this).closest('div').remove();
-                        });
-                    });
-                </script>
-                <button type="button" onclick="addToList()">Add Ingredient</button>
-
-                <h3>STEPS</h3>
-                <ul>
-                    <%r.steps.forEach((step, i) => {%>
-                    <div class="<%=i%>" id="newStep">
-                        <%if(i == 0){%>
-                        <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
-                        <%} else {%>
-                        <textarea name="steps" id="" cols="30" rows="8"><%= step %></textarea>
-                        <button type="button" id="remove">Remove</button>
-                        <%}%>
+        <form action="/recipe/<%=r._id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data" class="container-edit-form">
+                <div class="left-edit">
+                    <div class="imgupload" style="margin-top: 10px; border-bottom: 2px solid gray; width: 60%; padding-top: 15px;">
+                        <img src="<%= r.imageURL %>" style="width: 250px;"><br>
+                        <a href="/recipe/<%=r._id%>/image">Update Image</a>
+        
+                        </label><br>
                     </div>
-                <%})%>
-                </ul>
-                <script>
-                    function addStep() {
-                        // grab and create elements
-                        let ul = document.getElementById('newStep');
-                        let newDiv = document.createElement('div');
-                        let newItem = document.createElement('textarea');
-                        let newButton = document.createElement('button')
-                        // append elements
-                        ul.appendChild(newDiv)
-                        newDiv.appendChild(newItem);
-                        newDiv.appendChild(newButton)
-                        // set attributes
-                        newButton.setAttribute('type', 'button');
-                        newButton.innerHTML = 'Remove';
-                        newButton.setAttribute('id', 'remove');
-                        newItem.setAttribute('id', 'removeMe');
-                        newItem.setAttribute('cols', '30');
-                        newItem.setAttribute('rows', '3');
-                        newItem.setAttribute('name', 'steps');
-                    }
-                </script>
-                <script>
-                    $(document).ready(function () {
-                        $(document).on('click', '#remove', function () {
-                            $(this).closest('div').remove();
-                        });
-                    });
-                </script>
+                    <label>Recipe Name <br>
+                        <textarea type="text" name="title" style="margin-bottom: 20px" rows="4"><%=r.title%></textarea>
+                    </label><br>
+                    <div class="credits" style="border-top: 2px solid gray; width: 60%;">
+                        <p style="font-size: small;">If this recipe is not yours, please provide credit here</p>
+                        Company / Chef Name <br><input type="text" name="linkName" value="<%=r.linkName%>"> <br>
+                        Link <br><input type="text" name="extLink" value="<%=r.extLink%>">
+                    </div>
+                    <div class="cook-prep" style="border-top: 2px solid gray; width: 60%; padding-top: 15px;">
+                        <label>Prep Time <br>
+                            <input type="text" name="prepTime" value="<%=r.prepTime%>">
+                        </label> <br>
+                        <label>Cook Time <br>
+                            <input type="text" name="cookTime" value="<%=r.cookTime%>">
+                        </label> <br>
+                    </div>
+                    <div class="meal-diet" style="border-top: 2px solid gray; width: 60%; padding-top: 15px;">
 
-                <button type="button" onclick="addStep()">Add Step</button>
-            </div>
-            <input type="submit" value="Save Changes">
-        </form>
+                        <label>Choose Meal Type <br>
+                            <select name="mealType" style="width: 100px;">
+                                <option>None</option>
+                                <option>Breakfast</option>
+                                <option>Lunch</option>
+                                <option>Dinner</option>
+                                <option>Dessert</option>
+                                <option>Snack</option>
+                                <option>Other</option>
+                            </select>
+                        </label> <br>
+                        <label>Dietary Restrictions <br>
+                            <select name="restrictions" style="width: 100px;">
+                                <option>None</option>
+                                <option>Vegan</option>
+                                <option>Vegetarian</option>
+                                <option>Gluten Free</option>
+                                <option>Other</option>
+                            </select>
+                        </label><br>
+                    </div>
+                </div>
+
+
+                <div class="right-edit right-center">
+                    <label class="new-labels" style="margin-bottom: 50px;">Description <br>
+                        <textarea style="margin-bottom: 30px; margin-top: 15px;" name="description" cols="45" rows="4"><%= r.description %></textarea>
+                    </label><br>
+                    <label class="new-labels">Ingredients <br>
+                        <ul id="inputList" style="padding: 0;">
+                            <%r.ingredients.forEach((ingredient, i) => {%>
+                            <div class="<%=i%> right-center newdiv-new" style="margin-bottom: 6px;">
+                                <%if(i == 0){%>
+                                <textarea name="ingredients" cols="45" rows="4"><%= ingredient %></textarea>
+                                <%} else {%>
+                                <textarea name="ingredients" cols="45" rows="4"><%= ingredient %></textarea>
+                                <button type="button" id="remove" class="new-buttons" style="border: none;">Remove</button>
+                                <%}%>
+                            </div>              
+                        <%})%>
+                        </ul>
+                        <script>
+                            function addToList() {
+                                // grab and create elements
+                                let ul = document.getElementById('inputList');
+                                let newDiv = document.createElement('div');
+                                let newItem = document.createElement('textarea');
+                                let newButton = document.createElement('button')
+                                // append elements
+                                ul.appendChild(newDiv)
+                                newDiv.appendChild(newItem);
+                                newDiv.appendChild(newButton)
+                                newDiv.setAttribute('class', 'newdiv-new')
+                                // set attributes
+                                newButton.setAttribute('type', 'button');
+                                newButton.innerHTML = 'Remove';
+                                newButton.setAttribute('id', 'remove');
+                                newButton.setAttribute('class', 'new-buttons')
+                                newButton.setAttribute('style', 'border: none')
+                                newItem.setAttribute('id', 'removeMe');
+                                newItem.setAttribute('cols', '45');
+                                newItem.setAttribute('rows', '4');
+                                newItem.setAttribute('name', 'ingredients');
+                            }
+                        </script>
+                        <script>
+                            $(document).ready(function () {
+                                $(document).on('click', '#remove', function () {
+                                    $(this).closest('div').remove();
+                                });
+                            });
+                        </script>
+                        <button type="button" onclick="addToList()" class="new-buttons" style="border: none; height: 2px;">Add Ingredient</button>
+                    </label><br>
+                    
+                </div>
+                <div class="right-steps">
+
+                        <label class="new-labels">Steps
+                            <ul id="newStep" style="padding: 0;">
+                                <%r.steps.forEach((step, i) => {%>
+                                <div class="<%=i%> newdiv-new">
+                                    <%if(i == 0){%>
+                                    <textarea name="steps" cols="45" rows="4" style="margin-bottom: 6px;"><%= step %></textarea>
+                                    <%} else {%>
+                                    <textarea name="steps" cols="45" rows="4" style="margin-bottom: 6px;"><%= step %></textarea>
+                                    <button type="button" id="remove" class="new-buttons" style="border: none;">Remove</button>
+                                    <%}%>
+                                </div>
+                            <%})%>
+                            </ul>
+                            <script>
+                                function addStep() {
+                                    // grab and create elements
+                                    let ul = document.getElementById('newStep');
+                                    let newDiv = document.createElement('div');
+                                    let newItem = document.createElement('textarea');
+                                    let newButton = document.createElement('button')
+                                    // append elements
+                                    ul.appendChild(newDiv)
+                                    newDiv.appendChild(newItem);
+                                    newDiv.appendChild(newButton)
+                                    newDiv.setAttribute('class', 'newdiv-new')
+                                    // set attributes
+                                    newButton.setAttribute('type', 'button');
+                                    newButton.innerHTML = 'Remove';
+                                    newButton.setAttribute('id', 'remove');
+                                    newButton.setAttribute('class', 'new-buttons')
+                                    newButton.setAttribute('style', 'border: none')
+                                    newItem.setAttribute('id', 'removeMe');
+                                    newItem.setAttribute('cols', '45');
+                                    newItem.setAttribute('rows', '4');
+                                    newItem.setAttribute('name', 'steps');
+                                }
+                            </script>
+                            <script>
+                                $(document).ready(function () {
+                                    $(document).on('click', '#remove', function () {
+                                        $(this).closest('div').remove();
+                                    });
+                                });
+                            </script>
+                            <button type="button" onclick="addStep()" class="new-buttons" style="border: none; height: 2px;">Add Step</button>
+                        </label><br>
+                            <input type="submit" value="Submit" class="new-buttons">
+                </div>
+            
+            </form>
+    
     </div>
 </body>
 

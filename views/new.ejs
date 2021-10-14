@@ -87,12 +87,12 @@
 
             <div class="right-new right-center">
                 <label class="new-labels" style="margin-bottom: 50px;">Description <br>
-                    <textarea style="margin-bottom: 30px; margin-top: 15px;" name="description" cols="45" rows="5"></textarea>
+                    <textarea style="margin-bottom: 30px; margin-top: 15px;" name="description" cols="45" rows="4"></textarea>
                 </label><br>
                 <label class="new-labels">Ingredients <br>
                     <ul id="inputList" style="padding: 0;">
-                        <div class="right-center">
-                            <textarea name="ingredients" cols="45" rows="5"></textarea>
+                        <div class="right-center" style="margin-bottom: 6px;">
+                            <textarea name="ingredients" cols="45" rows="4"></textarea>
                         </div>
                     </ul>
                     <script>
@@ -115,7 +115,7 @@
                             newButton.setAttribute('style', 'border: none')
                             newItem.setAttribute('id', 'removeMe');
                             newItem.setAttribute('cols', '45');
-                            newItem.setAttribute('rows', '5');
+                            newItem.setAttribute('rows', '4');
                             newItem.setAttribute('name', 'ingredients');
                         }
                         </script>
@@ -130,7 +130,7 @@
                 </label><br>
                 <label class="new-labels">Steps
                     <ul id="stepList" style="padding: 0;">
-                        <textarea name="steps" cols="45" rows="5"></textarea>
+                        <textarea name="steps" cols="45" rows="4" style="margin-bottom: 6px;"></textarea>
                     </ul>
                     <script>
                         function addStep() {
@@ -152,7 +152,7 @@
                             button.setAttribute('class', 'new-buttons')
                             button.setAttribute('style', 'border: none')
                             newStep.setAttribute('cols', '45');
-                            newStep.setAttribute('rows', '5');
+                            newStep.setAttribute('rows', '4');
                             newStep.setAttribute('name', 'steps');
                         
                         }
